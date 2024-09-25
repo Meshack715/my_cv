@@ -15,36 +15,34 @@
         }
 
         body {
-            background-color: #f4f4f4;
-            color: #333;
-            background-image: url('./images/resume_logo.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background-color: #e9ecef;
+            color: #343a40;
+            height: 100vh;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
-            background-color: rgba(0, 123, 255, 0.8);
+            background-color: #007bff;
             color: white;
-            padding: 20px 20px;
+            padding: 30px;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             position: relative;
-            overflow: hidden;
         }
 
         .greeting {
             position: absolute;
             top: 20px;
             left: 20px;
-            font-size: 1.8em;
-            font-family: 'Roboto', sans-serif;
+            font-size: 1.5em;
             color: white;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
 
         .profile-pic {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             overflow: hidden;
             border: 5px solid white;
@@ -52,6 +50,7 @@
             top: 15px;
             left: 50%;
             transform: translateX(-50%);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .profile-pic img {
@@ -61,60 +60,58 @@
 
         header h1 {
             font-size: 2.5em;
-            margin-top: 120px;
+            margin-top: 140px;
         }
 
         header h2 {
             font-size: 1.5em;
-            margin-top: 10px;
+            margin-top: 5px;
         }
 
-        nav {
-            margin-top: 10px; /* Space between header and nav */
-        }
-
-        .menu-toggle {
-            display: none; /* Hidden on large screens */
-            cursor: pointer; /* Pointer for toggle */
-            font-size: 2em;
+        /* Menu Styles */
+        .menu-button {
+            background-color: #007bff;
             color: white;
-            background: none;
             border: none;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            display: flex; /* Show as row on larger screens */
-            justify-content: flex-start; /* Align items to the left */
-        }
-
-        nav ul.active {
-            display: flex; /* Show on active */
-        }
-
-        nav ul li {
-            margin: 5px 0; /* Margin for stacked items */
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 15px; /* Padding for touch */
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1em;
+            position: absolute;
+            top: 20px;
+            right: 20px;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            z-index: 1000; /* Ensure button is on top */
         }
 
-        nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.3);
+        .menu {
+            display: none; /* Initially hidden */
+            position: absolute;
+            top: 70px; /* Adjust based on header height */
+            right: 20px;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            z-index: 1000; /* Ensure menu is on top */
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #343a40;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .menu a:hover {
+            background-color: #007bff;
+            color: white;
         }
 
         main {
             max-width: 900px;
             margin: 30px auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: white;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -124,22 +121,40 @@
         }
 
         h3 {
-            border-bottom: 2px solid #007bff;
+            border-bottom: 3px solid #007bff;
             padding-bottom: 10px;
             margin-bottom: 15px;
-            font-size: 1.8em;
+            font-size: 2em;
+            color: #007bff;
         }
 
         ul {
             list-style-type: square;
             padding-left: 20px;
+            line-height: 1.6;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
         }
 
         footer {
             text-align: center;
             padding: 20px 0;
-            background-color: rgba(0, 123, 255, 0.8);
+            background-color: #007bff;
             color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
 
         footer p {
@@ -151,158 +166,160 @@
             margin: 0 10px;
             text-decoration: none;
             font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
         }
 
         /* Responsive Design */
         @media (max-width: 600px) {
-            .menu-toggle {
-                display: inline; /* Show toggle button on small screens */
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                background: none;
-                border: none;
+            header h1 {
+                font-size: 2em;
             }
 
-            nav ul {
-                flex-direction: column; /* Stack items vertically */
-                display: none; /* Hide initially */
-                position: absolute; /* Position absolutely for mobile */
-                top: 60px; /* Adjust based on your header */
-                left: 0; /* Align to the left */
-                background-color: rgba(0, 123, 255, 0.9);
-                z-index: 1000; /* Ensure menu is above other content */
-                width: 200px; /* Width of the menu */
-                padding: 10px; /* Padding for the menu */
-                border-radius: 5px; /* Rounded corners */
+            header h2 {
+                font-size: 1.2em;
             }
 
-            nav ul.active {
-                display: flex; /* Show on active */
+            .profile-pic {
+                width: 100px;
+                height: 100px;
+                top: 10px;
+            }
+
+            .greeting {
+                font-size: 1.2em;
             }
 
             main {
                 padding: 15px;
             }
 
-            .profile-pic {
-                width: 120px;
-                height: 120px;
-                top: 10px;
-            }
-        }
-
-        /* Large screens */
-        @media (min-width: 601px) {
-            .menu-toggle {
-                display: none; /* Hide toggle button on large screens */
+            .menu-button {
+                font-size: 0.9em;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+        <button class="menu-button" onclick="toggleMenu()">Menu</button>
         <div class="greeting" id="greeting"></div>
         <div class="profile-pic">
             <img src="./images/index_profile.jpg" alt="Profile Picture">
         </div>
         <h1>JUNIORMESHACK ODONDI</h1>
         <h2>Information Technology Specialist</h2>
-        
-        <nav>
-            <ul id="navMenu">
-                <li><a href="./about_me.html">About Me</a></li>
-                <li><a href="./projects.html">Projects</a></li>
-                <li><a href="./skills.html">Skills</a></li>
-                <li><a href="./education.html">Education</a></li>
-                <li><a href="./experience.html">Experience</a></li>
-                <li><a href="./certifications.html">Certifications</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
     </header>
+
+    <div class="menu" id="menu">
+        <a href="./about_me.html">About Me</a>
+        <a href="./projects.html">Key Projects</a>
+        <a href="./skills.html">Skills</a>
+        <a href="./education.html">Education</a>
+        <a href="./experience.html">Work Experience</a>
+        <a href="./certifications.html">Certifications</a>
+        <a href="./contact.html">Contacts</a>
+    </div>
 
     <main>
         <section id="about">
             <h3>About Me</h3>
-            <p>An experienced IT professional specializing in full-stack web development and database management. I have a passion for leveraging technology to solve business problems and optimize operational efficiency. My focus is on building responsive websites, secure databases, and scalable IT systems.</p>
+            <div class="card">
+                <p>An experienced IT professional specializing in full-stack web development and database management. I have a passion for leveraging technology to solve business problems and optimize operational efficiency. My focus is on building responsive websites, secure databases, and scalable IT systems.</p>
+            </div>
         </section>
 
         <section id="projects">
             <h3>Key Projects</h3>
-            <ul>
-                <li>Developed a dynamic e-commerce website.</li>
-                <li>Created a responsive mobile application for a local business.</li>
-                <li>Designed a database system for tracking customer interactions.</li>
-            </ul>
+            <div class="card">
+                <ul>
+                    <li>Developed a dynamic e-commerce website.</li>
+                    <li>Created a responsive mobile application for a local business.</li>
+                    <li>Designed a database system for tracking customer interactions.</li>
+                </ul>
+            </div>
         </section>
 
         <section id="skills">
             <h3>Skills</h3>
-            <ul>
-                <li>HTML, CSS, JavaScript</li>
-                <li>React, Node.js, Express</li>
-                <li>SQL, MongoDB, Firebase</li>
-                <li>Git, GitHub, Agile Methodologies</li>
-            </ul>
+            <div class="card">
+                <ul>
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>React, Node.js, Express</li>
+                    <li>SQL, MongoDB, Firebase</li>
+                    <li>Git, GitHub, Agile Methodologies</li>
+                </ul>
+            </div>
         </section>
 
         <section id="education">
             <h3>Education</h3>
-            <ul>
-                <li>Bachelor's in Information Technology</li>
-                <li>Certifications in Web Development and Database Management</li>
-            </ul>
+            <div class="card">
+                <ul>
+                    <li>Bachelor's in Information Technology</li>
+                    <li>Certifications in Web Development and Database Management</li>
+                </ul>
+            </div>
         </section>
 
         <section id="experience">
             <h3>Work Experience</h3>
-            <ul>
-                <li>IT Support Specialist at ABC Corp</li>
-                <li>Web Developer Intern at XYZ Ltd</li>
-            </ul>
+            <div class="card">
+                <ul>
+                    <li>IT Support Specialist at University of Eastern Africa Baraton Corp</li>
+                    <li>Web Developer Intern at Sololearn. Ltd</li>
+                </ul>
+            </div>
         </section>
 
         <section id="certifications">
             <h3>Certifications</h3>
-            <ul>
-                <li>Certified Full-Stack Developer</li>
-                <li>Database Management Certification</li>
-            </ul>
+            <div class="card">
+                <ul>
+                    <li>Certified Full-Stack Developer</li>
+                    <li>Database Management Certification</li>
+                </ul>
+            </div>
         </section>
     </main>
 
     <footer>
         <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
         </div>
-        <p>&copy; 2024 Juniormeshack Odondi. All rights reserved.</p>
+        <p>&copy; 2024 panther_zulu.com. All rights reserved.</p>
     </footer>
 
     <script>
-        // Greeting Message
-        const greeting = document.getElementById('greeting');
-        const hours = new Date().getHours();
-        if (hours < 12) {
-            greeting.innerHTML = "Good Morning!";
-        } else if (hours < 18) {
-            greeting.innerHTML = "Good Afternoon!";
-        } else {
-            greeting.innerHTML = "Good Evening!";
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
         }
 
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
+        function setGreeting() {
+            const greetingElement = document.getElementById('greeting');
+            const currentHour = new Date().getHours();
+            let greetingMessage;
 
-        menuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-        });
+            if (currentHour < 12) {
+                greetingMessage = "Good Morning!";
+            } else if (currentHour < 18) {
+                greetingMessage = "Good Afternoon!";
+            } else {
+                greetingMessage = "Good Evening!";
+            }
+
+            greetingElement.textContent = greetingMessage;
+        }
+
+        // Set the greeting message when the page loads
+        window.onload = setGreeting;
     </script>
 </body>
 </html>
