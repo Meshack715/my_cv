@@ -56,6 +56,10 @@
             margin-top: 10px;
         }
 
+        nav {
+            margin-top: 20px;
+        }
+
         nav ul {
             list-style-type: none;
             text-align: center;
@@ -64,6 +68,7 @@
 
         nav ul li {
             display: inline-block;
+            position: relative; /* Position relative for dropdown */
             margin: 0 15px;
         }
 
@@ -71,13 +76,35 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
-            padding: 5px 0;
-            position: relative;
-            transition: color 0.3s ease-in-out;
+            padding: 10px 15px;
+            transition: background 0.3s ease, color 0.3s ease;
+            border-radius: 5px; /* Rounded corners */
         }
 
         nav ul li a.active, nav ul li a:hover {
-            color: #ffdd57;
+            background: #ffdd57; /* Background color on hover */
+            color: #333; /* Text color on hover */
+        }
+
+        /* Dropdown styles */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%; /* Position below the main menu */
+            left: 0;
+            background: rgba(0, 123, 255, 0.9);
+            padding: 10px 0;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        nav ul li:hover ul {
+            display: block; /* Show dropdown on hover */
+        }
+
+        nav ul li ul li {
+            display: block; /* Stack dropdown items */
+            margin: 0;
         }
 
         main {
@@ -192,7 +219,14 @@
                 <li><a href="./education.html">Education</a></li>
                 <li><a href="./experience.html" class="active">Experience</a></li>
                 <li><a href="./certifications.html">Certifications</a></li>
-                <li><a href="./contact.html">Contact</a></li>
+                <li>
+                    <a href="./contact.html">Contact</a>
+                    <!-- Dropdown example -->
+                    <ul>
+                        <li><a href="./contact.html">Contact Form</a></li>
+                        <li><a href="./faq.html">FAQs</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>

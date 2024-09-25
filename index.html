@@ -68,43 +68,29 @@
             margin-top: 5px;
         }
 
-        /* Menu Styles */
-        .menu-button {
-            background-color: #007bff;
+        /* Navigation Styles */
+        nav {
+            background-color: #343a40;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        nav a {
             color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 1em;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            border-radius: 5px;
-            z-index: 1000; /* Ensure button is on top */
-        }
-
-        .menu {
-            display: none; /* Initially hidden */
-            position: absolute;
-            top: 70px; /* Adjust based on header height */
-            right: 20px;
-            background-color: white;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            z-index: 1000; /* Ensure menu is on top */
-        }
-
-        .menu a {
-            display: block;
-            padding: 10px 20px;
-            color: #343a40;
+            margin: 5px 10px; /* Reduced margin for smaller screens */
             text-decoration: none;
-            transition: background 0.2s;
+            font-size: 1.2em;
+            padding: 10px 15px;
+            transition: background 0.3s, color 0.3s;
+            display: inline-block; /* Make links block-level for better padding */
         }
 
-        .menu a:hover {
+        nav a:hover {
             background-color: #007bff;
             color: white;
+            border-radius: 5px;
         }
 
         main {
@@ -195,17 +181,37 @@
 
             main {
                 padding: 15px;
+                margin: 15px; /* Adjust margin for smaller screens */
             }
 
-            .menu-button {
-                font-size: 0.9em;
+            nav a {
+                font-size: 1em;
+                padding: 8px 10px;
+                margin: 5px; /* Reduced margin for smaller screens */
+            }
+
+            nav {
+                flex-direction: column; /* Stack items vertically on smaller screens */
+                align-items: center; /* Center align items */
+            }
+
+            nav a {
+                width: 90%; /* Make links wider for easier clicking */
+                text-align: center; /* Center text in links */
+            }
+
+            footer {
+                font-size: 0.9em; /* Smaller footer text */
+            }
+
+            .social-icons a {
+                font-size: 1.2em; /* Smaller social icons */
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <button class="menu-button" onclick="toggleMenu()">Menu</button>
         <div class="greeting" id="greeting"></div>
         <div class="profile-pic">
             <img src="./images/index_profile.jpg" alt="Profile Picture">
@@ -214,7 +220,7 @@
         <h2>Information Technology Specialist</h2>
     </header>
 
-    <div class="menu" id="menu">
+    <nav>
         <a href="./about_me.html">About Me</a>
         <a href="./projects.html">Key Projects</a>
         <a href="./skills.html">Skills</a>
@@ -222,7 +228,7 @@
         <a href="./experience.html">Work Experience</a>
         <a href="./certifications.html">Certifications</a>
         <a href="./contact.html">Contacts</a>
-    </div>
+    </nav>
 
     <main>
         <section id="about">
@@ -271,6 +277,7 @@
                 <ul>
                     <li>IT Support Specialist at University of Eastern Africa Baraton Corp</li>
                     <li>Web Developer Intern at Sololearn. Ltd</li>
+                    <li>Database Administrator at Innovate Africa</li>
                 </ul>
             </div>
         </section>
@@ -279,7 +286,7 @@
             <h3>Certifications</h3>
             <div class="card">
                 <ul>
-                    <li>Certified Full-Stack Developer</li>
+                    <li>Certified Full-Stack Web Developer</li>
                     <li>Database Management Certification</li>
                 </ul>
             </div>
@@ -287,39 +294,36 @@
     </main>
 
     <footer>
+        <p>&copy; 2024 Juniormeshack Odondi. All rights reserved.</p>
         <div class="social-icons">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-linkedin"></a>
         </div>
-        <p>&copy; 2024 panther_zulu.com. All rights reserved.</p>
     </footer>
 
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-        }
-
-        function setGreeting() {
+        function updateGreeting() {
             const greetingElement = document.getElementById('greeting');
-            const currentHour = new Date().getHours();
-            let greetingMessage;
+            const hour = new Date().getHours();
+            let greeting;
 
-            if (currentHour < 12) {
-                greetingMessage = "Good Morning!";
-            } else if (currentHour < 18) {
-                greetingMessage = "Good Afternoon!";
+            if (hour < 12) {
+                greeting = "Good Morning!";
+            } else if (hour < 18) {
+                greeting = "Good Afternoon!";
             } else {
-                greetingMessage = "Good Evening!";
+                greeting = "Good Evening!";
             }
 
-            greetingElement.textContent = greetingMessage;
+            greetingElement.textContent = greeting;
         }
 
-        // Set the greeting message when the page loads
-        window.onload = setGreeting;
+        // Call updateGreeting on page load
+        window.onload = function() {
+            updateGreeting();
+        };
     </script>
 </body>
 </html>
