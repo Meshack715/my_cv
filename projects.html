@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects - Juniormeshack Odondi</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column; /* Allows footer to stay at the bottom */
+            min-height: 100vh; /* Ensures full viewport height */
+            background-image: url('./images/project.png'); /* Adding the new background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the images */
+            color: #333;
+        }
+
+        header {
+            background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent header */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h2 {
+            font-size: 2.5em;
+        }
+
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        nav a {
+            color: #fff; /* Change link color to white for visibility */
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        main {
+            flex: 1; /* Allows main to grow and push footer down */
+            max-width: 90%; /* Responsive width */
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent for readability */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-size: 2em;
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .project {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 5px solid #007bff;
+            border-radius: 8px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .project:hover {
+            background-color: #e9f3ff;
+            border-color: #0056b3;
+        }
+
+        .project h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        .project p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .tags {
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            margin-right: 5px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #007bff;
+            color: white;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            header h2 {
+                font-size: 2em; /* Smaller header size */
+            }
+
+            section h2 {
+                font-size: 1.5em; /* Smaller section title size */
+            }
+
+            .project h3 {
+                font-size: 1.2em; /* Smaller project title size */
+            }
+
+            .project p {
+                font-size: 1em; /* Smaller project description size */
+            }
+
+            nav a {
+                font-size: 1em; /* Smaller nav link size */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>My Completed Projects</h2>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about_me.html">About me</a>
+            <a href="./skills.html">Skills</a>
+            <a href="./experience.html">Experience</a>
+            <a href="./education.html">Education</a>
+            <a href="./certifications.html">Certifications</a>
+            <a href="./contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Projects I've Worked On</h2>
+
+            <!-- Project 1 -->
+            <div class="project">
+                <h3>E-commerce Website</h3>
+                <p>A fully functional e-commerce website with user authentication, shopping cart functionality, and admin product management. Integrated PayPal for payment processing.</p>
+                <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project">
+                <h3>Portfolio Website</h3>
+                <p>My personal portfolio website where I showcase my skills, projects, and resume. Features a responsive design and smooth scrolling navigation.</p>
+                <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project">
+                <h3>Hospital Management System</h3>
+                <p>A web-based application to manage patient records, appointments, doctor schedules, and billing. Admin panel for managing system users and hospital departments.</p>
+                <div class="tags">
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Bootstrap</span>
+                </div>
+            </div>
+
+            <!-- Add more projects as needed -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 panther_zulu.com. All rights reserved.</p>
+    </footer>
+</body>
+</html>
