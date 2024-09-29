@@ -15,7 +15,7 @@
         }
 
         body {
-            background-color: #e9ecef;
+            background-color: #f4f7fa; /* Softer background color */
             color: #343a40;
             height: 100vh;
             overflow: auto;
@@ -85,12 +85,12 @@
             padding: 10px 15px;
             transition: background 0.3s, color 0.3s;
             display: inline-block; /* Make links block-level for better padding */
+            border-radius: 5px; /* Rounded corners */
         }
 
         nav a:hover {
             background-color: #007bff;
             color: white;
-            border-radius: 5px;
         }
 
         main {
@@ -126,11 +126,12 @@
             padding: 20px;
             margin: 10px 0;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .card:hover {
             transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         footer {
@@ -221,13 +222,13 @@
     </header>
 
     <nav>
-        <a href="./about_me.html">About Me</a>
-        <a href="./projects.html">Key Projects</a>
-        <a href="./skills.html">Skills</a>
-        <a href="./education.html">Education</a>
-        <a href="./experience.html">Work Experience</a>
-        <a href="./certifications.html">Certifications</a>
-        <a href="./contact.html">Contacts</a>
+        <a href="./about_me.html"><i class="fas fa-user"></i> About Me</a>
+        <a href="./projects.html"><i class="fas fa-project-diagram"></i> Key Projects</a>
+        <a href="./skills.html"><i class="fas fa-cogs"></i> Skills</a>
+        <a href="./education.html"><i class="fas fa-graduation-cap"></i> Education</a>
+        <a href="./experience.html"><i class="fas fa-briefcase"></i> Work Experience</a>
+        <a href="./certifications.html"><i class="fas fa-certificate"></i> Certifications</a>
+        <a href="./contact.html"><i class="fas fa-envelope"></i> Contacts</a>
     </nav>
 
     <main>
@@ -276,8 +277,7 @@
             <div class="card">
                 <ul>
                     <li>IT Support Specialist at University of Eastern Africa Baraton Corp</li>
-                    <li>Web Developer Intern at Sololearn. Ltd</li>
-                    <li>Database Administrator at Innovate Africa</li>
+                    <li>Web Developer Intern at Panoramic Solutions Ltd</li>
                 </ul>
             </div>
         </section>
@@ -286,8 +286,18 @@
             <h3>Certifications</h3>
             <div class="card">
                 <ul>
-                    <li>Certified Full-Stack Web Developer</li>
-                    <li>Database Management Certification</li>
+                    <li>Certified Web Developer - Web Development Institute</li>
+                    <li>Database Management Certification - Tech Academy</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h3>Contact</h3>
+            <div class="card">
+                <ul>
+                    <li>Email: <a href="mailto:odondimeshack1@gmail.com">odondimeshack1@gmail.com</a></li>
+                    <li>LinkedIn: <a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn Profile</a></li>
                 </ul>
             </div>
         </section>
@@ -296,34 +306,28 @@
     <footer>
         <p>&copy; 2024 Juniormeshack Odondi. All rights reserved.</p>
         <div class="social-icons">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
         </div>
     </footer>
 
     <script>
         function updateGreeting() {
             const greetingElement = document.getElementById('greeting');
-            const hour = new Date().getHours();
-            let greeting;
+            const currentHour = new Date().getHours();
 
-            if (hour < 12) {
-                greeting = "Good Morning!";
-            } else if (hour < 18) {
-                greeting = "Good Afternoon!";
+            if (currentHour < 12) {
+                greetingElement.textContent = 'Good Morning!';
+            } else if (currentHour < 18) {
+                greetingElement.textContent = 'Good Afternoon!';
             } else {
-                greeting = "Good Evening!";
+                greetingElement.textContent = 'Good Evening!';
             }
-
-            greetingElement.textContent = greeting;
         }
 
-        // Call updateGreeting on page load
-        window.onload = function() {
-            updateGreeting();
-        };
+        updateGreeting();
     </script>
 </body>
 </html>

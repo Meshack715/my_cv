@@ -3,56 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills - Your Name</title>
+    <title>Skills - Juniormeshack Odondi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Make body take full height of the viewport */
+            min-height: 100vh;
             font-family: Arial, sans-serif;
-            background-image: url('./images/skills.png'); /* Background image */
-            background-size: cover; /* Cover the entire viewport */
-            background-position: center; /* Center the image */
+            background-image: url('./images/skills.png');
+            background-size: cover;
+            background-position: center;
             color: #333;
-            margin: 0; /* Reset default margin */
+            margin: 0;
         }
 
         header {
-            background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent header */
+            background-color: rgba(0, 123, 255, 0.8);
             color: white;
             padding: 20px 0;
             text-align: center;
         }
 
         nav {
-            margin: 15px 0; /* Added margin for spacing */
-            text-align: center; /* Center align navigation */
+            margin: 15px 0;
+            text-align: center;
         }
 
         nav a {
-            color: white; /* Default color */
+            color: white;
             margin: 0 15px;
             text-decoration: none;
             font-size: 1.2em;
-            transition: color 0.3s, transform 0.3s; /* Added transform for effect */
-            padding: 5px 0; /* Added padding for better click area */
-            border-radius: 5px; /* Rounded corners */
+            transition: color 0.3s, transform 0.3s;
+            padding: 5px 0;
+            border-radius: 5px;
         }
 
         nav a:hover {
-            color: #ffdd57; /* Yellow color on hover */
-            transform: translateY(-3px); /* Lift effect */
+            color: #ffdd57;
+            transform: translateY(-3px);
         }
 
         main {
-            flex: 1; /* Allow main to grow and fill space */
+            flex: 1;
             max-width: 800px;
             margin: 20px auto;
-            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background for readability */
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
@@ -61,7 +61,7 @@
 
         h2 {
             font-size: 2em;
-            color: #007bff; /* Section title color */
+            color: #007bff;
             margin-bottom: 20px;
         }
 
@@ -72,37 +72,50 @@
         li {
             font-size: 1.2em;
             margin-bottom: 10px;
-            padding: 10px; /* Padding for list items */
-            border-radius: 5px; /* Rounded corners for list items */
-            background-color: white; /* Default background color for list items */
+            padding: 10px;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .tags {
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            margin-right: 5px;
+            border-radius: 5px;
+            font-size: 0.9em;
         }
 
         footer {
             text-align: center;
             padding: 10px 0;
-            background-color: #007bff; /* Footer background color */
+            background-color: #007bff;
             color: white;
-            margin-top: 20px; /* Space above footer */
+            margin-top: 20px;
         }
 
         footer p {
             margin: 0;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 600px) {
             nav a {
-                display: block; /* Stack navigation links vertically on small screens */
-                margin: 10px 0; /* Increased margin for better spacing */
-                font-size: 1.5em; /* Increased font size for better readability */
+                display: block;
+                margin: 10px 0;
+                font-size: 1.5em;
             }
 
             h1 {
-                font-size: 2em; /* Adjusted for mobile */
+                font-size: 2em;
             }
 
             h2 {
-                font-size: 1.5em; /* Adjusted for mobile */
+                font-size: 1.5em;
             }
         }
     </style>
@@ -111,31 +124,55 @@
     <header>
         <h1>Skills</h1>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="./about_me.html">About Me</a>
-            <a href="./education.html">Education</a>
-            <a href="./projects.html">Projects</a>
-            <a href="./experience.html">Experience</a>
-            <a href="./certifications.html">Certifications</a>
-            <a href="./contact.html">Contact</a>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="./about_me.html"><i class="fas fa-user"></i> About Me</a>
+            <a href="./education.html"><i class="fas fa-graduation-cap"></i> Education</a>
+            <a href="./projects.html"><i class="fas fa-folder-open"></i> Projects</a>
+            <a href="./experience.html"><i class="fas fa-briefcase"></i> Experience</a>
+            <a href="./certifications.html"><i class="fas fa-certificate"></i> Certifications</a>
+            <a href="./contact.html"><i class="fas fa-envelope"></i> Contact</a>
         </nav>
     </header>
 
     <main>
         <section>
-            <h2>My Skills</h2>
+            <h2>Technical Skills</h2>
             <ul>
-                <li>HTML, CSS, JavaScript</li>
+                <li>Web Development: HTML, CSS, JavaScript</li>
                 <li>Backend Development: PHP, MySQL</li>
                 <li>Frontend Frameworks: Bootstrap, React</li>
-                <li>Database Management</li>
-                <li>Problem-solving and Critical Thinking</li>
+                <li>Database Management and Administration</li>
+                <li>Mobile Application Development: Android (Java)</li>
+                <li>UI/UX Design for Web and Mobile</li>
+                <li>Version Control: Git, GitHub</li>
+                <li>Problem-Solving and Critical Thinking</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Soft Skills</h2>
+            <ul>
+                <li>Project Management & Time Management</li>
+                <li>Collaboration and Teamwork</li>
+                <li>Attention to Detail</li>
+                <li>Client Communication</li>
+                <li>Adaptability and Learning New Technologies</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Key Projects</h2>
+            <ul>
+                <li>Hospital Management System</li>
+                <li>Housing Projects Website</li>
+                <li>PZ Cleaner Mobile App</li>
+                <li>Online CV Platform Development</li>
             </ul>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 panther_zulu.com. All rights reserved.</p>
+        <p>&copy; 2024 Juniormeshack Odondi. All rights reserved.</p>
     </footer>
 </body>
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Projects - Juniormeshack Odondi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             box-sizing: border-box;
@@ -14,16 +15,16 @@
 
         body {
             display: flex;
-            flex-direction: column; /* Allows footer to stay at the bottom */
-            min-height: 100vh; /* Ensures full viewport height */
-            background-image: url('./images/project.png'); /* Adding the new background image */
-            background-size: cover; /* Cover the entire viewport */
-            background-position: center; /* Center the images */
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url('./images/project.png');
+            background-size: cover;
+            background-position: center;
             color: #333;
         }
 
         header {
-            background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent header */
+            background-color: rgba(0, 123, 255, 0.8);
             color: white;
             padding: 20px 0;
             text-align: center;
@@ -39,18 +40,22 @@
         }
 
         nav a {
-            color: #fff; /* Change link color to white for visibility */
+            color: #fff;
             margin: 0 15px;
             text-decoration: none;
             font-size: 1.2em;
         }
 
+        nav a i {
+            margin-right: 5px;
+        }
+
         main {
-            flex: 1; /* Allows main to grow and push footer down */
-            max-width: 90%; /* Responsive width */
+            flex: 1;
+            max-width: 90%;
             margin: 20px auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent for readability */
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -113,26 +118,25 @@
             margin: 0;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 600px) {
             header h2 {
-                font-size: 2em; /* Smaller header size */
+                font-size: 2em;
             }
 
             section h2 {
-                font-size: 1.5em; /* Smaller section title size */
+                font-size: 1.5em;
             }
 
             .project h3 {
-                font-size: 1.2em; /* Smaller project title size */
+                font-size: 1.2em;
             }
 
             .project p {
-                font-size: 1em; /* Smaller project description size */
+                font-size: 1em;
             }
 
             nav a {
-                font-size: 1em; /* Smaller nav link size */
+                font-size: 1em;
             }
         }
     </style>
@@ -141,13 +145,13 @@
     <header>
         <h2>My Completed Projects</h2>
         <nav>
-            <a href="./index.html">Home</a>
-            <a href="./about_me.html">About me</a>
-            <a href="./skills.html">Skills</a>
-            <a href="./experience.html">Experience</a>
-            <a href="./education.html">Education</a>
-            <a href="./certifications.html">Certifications</a>
-            <a href="./contact.html">Contact</a>
+            <a href="./index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="./about_me.html"><i class="fas fa-user"></i> About Me</a>
+            <a href="./skills.html"><i class="fas fa-code"></i> Skills</a>
+            <a href="./experience.html"><i class="fas fa-briefcase"></i> Experience</a>
+            <a href="./education.html"><i class="fas fa-graduation-cap"></i> Education</a>
+            <a href="./certifications.html"><i class="fas fa-certificate"></i> Certifications</a>
+            <a href="./contact.html"><i class="fas fa-envelope"></i> Contact</a>
         </nav>
     </header>
 
@@ -158,7 +162,7 @@
             <!-- Project 1 -->
             <div class="project">
                 <h3>E-commerce Website</h3>
-                <p>A fully functional e-commerce website with user authentication, shopping cart functionality, and admin product management. Integrated PayPal for payment processing.</p>
+                <p>This project involved building a fully functional e-commerce platform with features such as user authentication, product management, and a shopping cart. The system also supports online payments through PayPal integration. The admin dashboard allows for complete product and order management.</p>
                 <div class="tags">
                     <span class="tag">HTML</span>
                     <span class="tag">CSS</span>
@@ -171,7 +175,7 @@
             <!-- Project 2 -->
             <div class="project">
                 <h3>Portfolio Website</h3>
-                <p>My personal portfolio website where I showcase my skills, projects, and resume. Features a responsive design and smooth scrolling navigation.</p>
+                <p>A sleek and responsive personal portfolio website designed to showcase my projects and skills. The site features smooth scrolling, an interactive navigation bar, and an easily updatable project section for future additions.</p>
                 <div class="tags">
                     <span class="tag">HTML</span>
                     <span class="tag">CSS</span>
@@ -182,7 +186,7 @@
             <!-- Project 3 -->
             <div class="project">
                 <h3>Hospital Management System</h3>
-                <p>A web-based application to manage patient records, appointments, doctor schedules, and billing. Admin panel for managing system users and hospital departments.</p>
+                <p>A comprehensive hospital management system designed to streamline operations such as patient record keeping, appointment scheduling, doctor availability, and billing. The admin panel allows hospital administrators to manage users and different departments within the hospital.</p>
                 <div class="tags">
                     <span class="tag">PHP</span>
                     <span class="tag">MySQL</span>
@@ -191,7 +195,18 @@
                 </div>
             </div>
 
-            <!-- Add more projects as needed -->
+            <!-- Project 4 -->
+            <div class="project">
+                <h3>Housing Management System</h3>
+                <p>This system allows landlords to manage tenant information, rental payments, and maintenance requests. It also enables new tenants to apply for housing and tracks available properties. The admin panel includes approval features for new applicants.</p>
+                <div class="tags">
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Laravel</span>
+                </div>
+            </div>
+
         </section>
     </main>
 

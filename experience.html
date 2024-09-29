@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience - Juniormeshack Odondi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* General styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -17,11 +19,12 @@
             background-color: #f4f4f4;
             color: #333;
             background-image: url('./images/experience.jpg');
-            background-size: 40%; /* Smaller background image size */
+            background-size: cover;
             background-position: center top;
             background-repeat: no-repeat;
         }
 
+        /* Header styles */
         header {
             background-color: rgba(0, 123, 255, 0.8);
             color: white;
@@ -56,19 +59,19 @@
             margin-top: 10px;
         }
 
+        /* Navigation styles */
         nav {
             margin-top: 20px;
         }
 
         nav ul {
             list-style-type: none;
-            text-align: center;
+            display: flex;
+            justify-content: center;
             padding: 0;
         }
 
         nav ul li {
-            display: inline-block;
-            position: relative; /* Position relative for dropdown */
             margin: 0 15px;
         }
 
@@ -78,35 +81,16 @@
             font-weight: bold;
             padding: 10px 15px;
             transition: background 0.3s ease, color 0.3s ease;
-            border-radius: 5px; /* Rounded corners */
-        }
-
-        nav ul li a.active, nav ul li a:hover {
-            background: #ffdd57; /* Background color on hover */
-            color: #333; /* Text color on hover */
-        }
-
-        /* Dropdown styles */
-        nav ul li ul {
-            display: none;
-            position: absolute;
-            top: 100%; /* Position below the main menu */
-            left: 0;
-            background: rgba(0, 123, 255, 0.9);
-            padding: 10px 0;
             border-radius: 5px;
-            z-index: 1;
         }
 
-        nav ul li:hover ul {
-            display: block; /* Show dropdown on hover */
+        nav ul li a.active,
+        nav ul li a:hover {
+            background: #ffdd57;
+            color: #333;
         }
 
-        nav ul li ul li {
-            display: block; /* Stack dropdown items */
-            margin: 0;
-        }
-
+        /* Main content styles */
         main {
             max-width: 900px;
             margin: 100px auto 30px;
@@ -126,6 +110,7 @@
             margin-bottom: 20px;
             color: #007bff;
             position: relative;
+            text-transform: uppercase;
         }
 
         h3::after {
@@ -135,6 +120,21 @@
             height: 4px;
             background: #007bff;
             margin-top: 5px;
+        }
+
+        .tap-note {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #e7f3ff;
+            border-left: 6px solid #007bff;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .tap-note:hover {
+            background: #d1e8ff;
         }
 
         ul {
@@ -150,14 +150,81 @@
             font-size: 1.5em;
             margin-bottom: 10px;
             color: #333;
+            transition: color 0.3s;
+        }
+
+        ul li h4:hover {
+            color: #007bff;
         }
 
         ul li p {
             font-size: 1.1em;
             line-height: 1.6;
             color: #555;
+            margin-top: 5px;
         }
 
+        .timeline {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .timeline li {
+            margin-bottom: 15px;
+            background: #e7f3ff;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        /* Skills section */
+        .skills {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skills li {
+            background: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        /* Image gallery styles */
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .image-gallery img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Reviews section styles */
+        .reviews {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .reviews h4 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .review {
+            margin-bottom: 15px;
+            border-left: 4px solid #007bff;
+            padding-left: 10px;
+        }
+
+        /* Footer styles */
         footer {
             text-align: center;
             padding: 20px 0;
@@ -181,6 +248,7 @@
             color: #ffdd57;
         }
 
+        /* Responsive styles */
         @media (max-width: 600px) {
             header h1 {
                 font-size: 2em;
@@ -190,8 +258,11 @@
                 font-size: 1.2em;
             }
 
+            nav ul {
+                flex-direction: column;
+            }
+
             nav ul li {
-                display: block;
                 margin: 5px 0;
             }
 
@@ -207,26 +278,20 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <h2>Professional Experience</h2>
         <nav>
             <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./about_me.html">About Me</a></li>
-                <li><a href="./projects.html">Projects</a></li>
-                <li><a href="./skills.html">Skills</a></li>
-                <li><a href="./education.html">Education</a></li>
-                <li><a href="./experience.html" class="active">Experience</a></li>
-                <li><a href="./certifications.html">Certifications</a></li>
-                <li>
-                    <a href="./contact.html">Contact</a>
-                    <!-- Dropdown example -->
-                    <ul>
-                        <li><a href="./contact.html">Contact Form</a></li>
-                        <li><a href="./faq.html">FAQs</a></li>
-                    </ul>
-                </li>
+                <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="./about_me.html"><i class="fas fa-user"></i> About Me</a></li>
+                <li><a href="./projects.html"><i class="fas fa-folder"></i> Projects</a></li>
+                <li><a href="./skills.html"><i class="fas fa-cogs"></i> Skills</a></li>
+                <li><a href="./education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="./experience.html" class="active"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="./certifications.html"><i class="fas fa-certificate"></i> Certifications</a></li>
+                <li><a href="./contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -234,26 +299,87 @@
     <main>
         <section id="experience">
             <h3>Experience</h3>
+            <p class="tap-note">💡 <strong>Tap the links below for more information:</strong> Explore the details of my professional journey.</p>
             <ul>
                 <li>
-                    <h4>IT Support Intern at DEF Company</h4>
+                    <h4>IT Support Intern at University of Eastern Africa Baraton Institute</h4>
                     <p>Assisted in troubleshooting network issues and managing the company's internal database. Gained hands-on experience in IT support and network management, ensuring smooth operational workflows.</p>
                 </li>
                 <li>
                     <h4>Freelance Web Developer</h4>
                     <p>Designed and developed websites for small businesses, focusing on delivering user-friendly and responsive designs. Handled both front-end and back-end development using HTML, CSS, JavaScript, and PHP.</p>
                 </li>
+                <li>
+                    <h4>Online CV Websites Created</h4>
+                    <ul class="timeline">
+                        <li>Developed a CV website for <strong>Grace Valentine</strong> - <em>Hospitality Manager</em></li> <a href="https://gracevalentine-cv.vercel.app/" target="_blank">[View website]</a></li>
+                        <li>Created an online presence for <strong>Isaiah Dete Arina</strong> - <em>Seventh-day Adventist Pastor</em></li><a href="https://isaiah-dete-cv.vercel.app/" target="_blank">[View website]</a></li>
+                        <li>Worked on a professional site for <strong>Junior Jasper Ayoma</strong> - <em>Medical Laboratory Professional</em></li><a href="https://ayoma-s-cv.vercel.app/index.html" target="_blank">[View website]</a></li>
+                    </ul>
+                </li>
             </ul>
         </section>
+
+        <section id="skills">
+            <h3>Skills</h3>
+            <ul class="skills">
+                <li>Web Development</li>
+                <li>Database Management</li>
+                <li>Technical Support</li>
+                <li>Project Management</li>
+                <li>HTML/CSS/JavaScript</li>
+                <li>PHP</li>
+                <li>WordPress</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h3>Projects</h3>
+            <p>Here are some notable projects I have worked on:</p>
+            <div class="image-gallery">
+                <img src="./images/grace_screenshot.png" alt="Project 1">
+                <img src="./images/isaiah_screenshot.png" alt="Project 2">
+                <img src="./images/jasper_screenshot.png" alt="Project 3">
+            </div>
+        </section>
+
+        <!-- Add Font Awesome link in the <head> section of your HTML -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<section id="reviews">
+    <h3>Reviews</h3>
+    <div class="reviews">
+        <div class="review">
+            <strong>Pastor Isaiah Dete Arina</strong> - "Exceptional work! The website exceeded my expectations."
+            <br>
+            <a href="tel:+254759068232"><i class="fas fa-phone"></i> Call Client</a>
+        </div>
+        <div class="review">
+            <strong>Grace Valentine</strong> - "Very professional and timely. Highly recommended!"
+            <br>
+            <a href="tel:+254797823720"><i class="fas fa-phone"></i> Call Client</a>
+        </div>
+        <div class="review">
+            <strong>Dr. Junior Jasper Ayoma</strong> - "Fantastic service! I'm very satisfied with the results."
+            <br>
+            <a href="tel:++254713793795"><i class="fas fa-phone"></i> Call Client</a>
+        </div>
+    </div>
+</section>
+
+
+        
     </main>
 
     <footer>
-        <p>© 2024 Juniormeshack Odondi. All rights reserved.</p>
+        <p>© 2024 Juniormeshack Odondi</p>
         <div class="social-icons">
             <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
         </div>
     </footer>
 </body>
+
 </html>
