@@ -48,7 +48,6 @@
             transform: translateY(-3px);
         }
 
-        /* Hamburger menu styles */
         .hamburger {
             display: none;
             font-size: 1.5em;
@@ -74,7 +73,6 @@
             margin: 0 10px;
         }
 
-        /* Make the menu responsive */
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -190,6 +188,32 @@
         .close:focus {
             color: #ffdd57;
         }
+
+        /* Icon-based Button Design for View Certifications */
+        .cert-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 25px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.5em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+            margin-top: 30px;
+            cursor: pointer;
+        }
+
+        .cert-btn i {
+            margin-right: 10px; /* Space between icons and text */
+        }
+
+        .cert-btn:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -219,6 +243,9 @@
                 <li onclick="showCertificate('cert2')">Information Technology Support - SoloLearn, Inc., 2024</li>
                 <li onclick="showCertificate('cert3')">HTML5 and CSS3 Specialist - SoloLearn, Inc., 2023</li>
             </ul>
+
+            <!-- Icon-based Button for View Certifications -->
+           
         </section>
     </main>
 
@@ -239,9 +266,9 @@
     <div id="cert2" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('cert2')">&times;</span>
-            <h2>Information Technology Support - SoloLearn</h2>
+            <h2>IT Support - SoloLearn</h2>
             <img src="./certificates/it_support_certificate.jpg" alt="IT Support Certificate">
-            <p>Certified for providing excellent technical support, troubleshooting, and IT solutions, ensuring smooth technology operations.</p>
+            <p>Certified for learning essential skills in providing IT support, troubleshooting, and system administration tasks.</p>
         </div>
     </div>
 
@@ -250,22 +277,22 @@
             <span class="close" onclick="closeModal('cert3')">&times;</span>
             <h2>HTML5 and CSS3 Specialist - SoloLearn</h2>
             <img src="./certificates/html_css_certificate.jpg" alt="HTML5 and CSS3 Certificate">
-            <p>Certified in web design and development using HTML5 and CSS3, mastering modern responsive design techniques and best practices.</p>
+            <p>Specialized in HTML5 and CSS3 development for creating responsive, modern, and accessible web pages.</p>
         </div>
     </div>
 
     <script>
-        function toggleMenu() {
-            const navUl = document.querySelector('nav ul');
-            navUl.classList.toggle('active');
-        }
-
         function showCertificate(certId) {
-            document.getElementById(certId).style.display = 'block';
+            document.getElementById(certId).style.display = "block";
         }
 
         function closeModal(certId) {
-            document.getElementById(certId).style.display = 'none';
+            document.getElementById(certId).style.display = "none";
+        }
+
+        function toggleMenu() {
+            var nav = document.querySelector("nav ul");
+            nav.classList.toggle("active");
         }
     </script>
 </body>

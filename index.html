@@ -47,7 +47,7 @@
             overflow: hidden;
             border: 5px solid white;
             position: absolute;
-            top: 15px;
+            top: 30px;
             left: 50%;
             transform: translateX(-50%);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -66,6 +66,25 @@
         header h2 {
             font-size: 1.5em;
             margin-top: 5px;
+        }
+
+        /* Download Button Styles */
+        .download-btn {
+            background-color: #28a745; /* Green background for the button */
+            color: white;
+            padding: 10px 15px;
+            margin-top: 20px; /* Space between the button and other elements */
+            border: none;
+            border-radius: 5px; /* Rounded corners */
+            text-decoration: none;
+            font-size: 1.2em; /* Adjust font size */
+            display: inline-block; /* Display as block for padding */
+            transition: background 0.3s, transform 0.3s; /* Transition effects */
+        }
+
+        .download-btn:hover {
+            background-color: #218838; /* Darker green on hover */
+            transform: translateY(-2px); /* Slight lift on hover */
         }
 
         /* Navigation Styles */
@@ -219,6 +238,9 @@
         </div>
         <h1>JUNIORMESHACK ODONDI</h1>
         <h2>Information Technology Specialist</h2>
+        <a href="./Juniormeshack_CV.pdf" download="Juniormeshack_Odondi_Resume.pdf" class="download-btn">
+            <i class="fas fa-file-pdf"></i> Download PDF Resume
+        </a>
     </header>
 
     <nav>
@@ -233,71 +255,60 @@
 
     <main>
         <section id="about">
-            <h3>About Me</h3>
+            <h3><a href="./about_me.html">About Me</a></h3>
             <div class="card">
                 <p>An experienced IT professional specializing in full-stack web development and database management. I have a passion for leveraging technology to solve business problems and optimize operational efficiency. My focus is on building responsive websites, secure databases, and scalable IT systems.</p>
             </div>
         </section>
 
         <section id="projects">
-            <h3>Key Projects</h3>
+            <h3><a href="./projects.html">Key Projects</a></h3>
             <div class="card">
                 <ul>
                     <li>Developed a dynamic e-commerce website.</li>
                     <li>Created a responsive mobile application for a local business.</li>
-                    <li>Designed a database system for tracking customer interactions.</li>
+                    <li>Designed a database system for managing client information.</li>
                 </ul>
             </div>
         </section>
 
         <section id="skills">
-            <h3>Skills</h3>
+            <h3><a href="./skills.html">Skills</a></h3>
             <div class="card">
                 <ul>
-                    <li>HTML, CSS, JavaScript</li>
-                    <li>React, Node.js, Express</li>
-                    <li>SQL, MongoDB, Firebase</li>
-                    <li>Git, GitHub, Agile Methodologies</li>
+                    <li>Web Development: HTML, CSS, JavaScript, PHP</li>
+                    <li>Database Management: MySQL, MongoDB</li>
+                    <li>Cloud Computing: AWS, Azure</li>
                 </ul>
             </div>
         </section>
 
         <section id="education">
-            <h3>Education</h3>
+            <h3><a href="./education.html">Education</a></h3>
             <div class="card">
                 <ul>
-                    <li>Bachelor's in Information Technology</li>
-                    <li>Certifications in Web Development and Database Management</li>
+                    <li>Bachelor's Degree in Information Technology</li>
+                    <li>Certified Web Developer</li>
                 </ul>
             </div>
         </section>
 
         <section id="experience">
-            <h3>Work Experience</h3>
+            <h3><a href="./experience.html">Work Experience</a></h3>
             <div class="card">
                 <ul>
-                    <li>IT Support Specialist at University of Eastern Africa Baraton Corp</li>
-                    <li>Web Developer Intern at Panoramic Solutions Ltd</li>
+                    <li>IT Specialist at XYZ Company (2022 - Present)</li>
+                    <li>Web Developer Intern at ABC Corp (2021 - 2022)</li>
                 </ul>
             </div>
         </section>
 
         <section id="certifications">
-            <h3>Certifications</h3>
+            <h3><a href="./certifications.html">Certifications</a></h3>
             <div class="card">
                 <ul>
-                    <li>Certified Web Developer - Web Development Institute</li>
-                    <li>Database Management Certification - Tech Academy</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h3>Contact</h3>
-            <div class="card">
-                <ul>
-                    <li>Email: <a href="mailto:odondimeshack1@gmail.com">odondimeshack1@gmail.com</a></li>
-                    <li>LinkedIn: <a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn Profile</a></li>
+                    <li>Certified Information Systems Security Professional (CISSP)</li>
+                    <li>Microsoft Certified: Azure Developer Associate</li>
                 </ul>
             </div>
         </section>
@@ -306,25 +317,27 @@
     <footer>
         <p>&copy; 2024 Juniormeshack Odondi. All rights reserved.</p>
         <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/juniormeshackodondi" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/juniormeshackodondi" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/juniormeshackodondi" target="_blank"><i class="fab fa-twitter"></i></a>
         </div>
     </footer>
 
     <script>
         function updateGreeting() {
-            const greetingElement = document.getElementById('greeting');
+            const greetingDiv = document.getElementById('greeting');
             const currentHour = new Date().getHours();
+            let greetingMessage = '';
 
             if (currentHour < 12) {
-                greetingElement.textContent = 'Good Morning!';
+                greetingMessage = 'Good Morning!';
             } else if (currentHour < 18) {
-                greetingElement.textContent = 'Good Afternoon!';
+                greetingMessage = 'Good Afternoon!';
             } else {
-                greetingElement.textContent = 'Good Evening!';
+                greetingMessage = 'Good Evening!';
             }
+
+            greetingDiv.innerText = greetingMessage;
         }
 
         updateGreeting();
