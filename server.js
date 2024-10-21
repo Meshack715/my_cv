@@ -1,3 +1,4 @@
+// Import required packages
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
@@ -12,23 +13,36 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Validate environment variables
+if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    console.error('Environment variables EMAIL_USER or EMAIL_PASS are not set.');
+    process.exit(1);
+}
+
 // Nodemailer transporter configuration
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: process.env.EMAIL_USER, // Email from .env
-        pass: process.env.EMAIL_PASS  // Password from .env
-    }
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+    },
+    logger: true,  // Enable logging
+    debug: true    // Show debug output
 });
 
 // POST route to handle email sending
 app.post('/send-email', (req, res) => {
     const { name, email, message } = req.body;
 
+    // Basic validation
+    if (!name || !email || !message) {
+        return res.status(400).send('All fields are required.');
+    }
+
     // Mail options
     const mailOptions = {
         from: process.env.EMAIL_USER, // Sender address (your email)
-        to: 'odondimeshack1@gmail.com', // Recipient email
+        to: process.env.EMAIL_USER, // Change this to the recipient email if needed
         subject: `Message from ${name} (${email})`, // Include sender's name and email
         text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`, // Plain text version
         html: `<h3>Message from ${name} (${email})</h3><p>${message}</p>` // HTML version for formatting
@@ -37,8 +51,8 @@ app.post('/send-email', (req, res) => {
     // Send the email
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-            console.error('Error:', error);
-            return res.status(500).send('Error sending email.');
+            console.error('Error sending email:', error);
+            return res.status(500).send('Error sending email: ' + error.message);
         }
         res.status(200).send('Email sent successfully: ' + info.response);
     });
