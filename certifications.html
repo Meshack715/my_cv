@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,9 @@
             font-family: 'Arial', sans-serif;
             color: #333;
             background: #e0f7ff; /* Light blue background */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* Header Styles */
@@ -56,84 +60,90 @@
             border-radius: 5px;
         }
 
-        /* Profile Icon Styling */
-        .hamburger {
-            font-size: 24px;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .hamburger:hover {
-            color: #66ccff;
-        }
-
         /* Hero Section */
-        .hero {
+        main {
+            padding: 20px 10%;
             text-align: center;
-            padding: 50px 0;
-            background-color: #fff;
+            flex: 1; /* Allows the main content to grow and take available space */
         }
 
-        .profile img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+        h2 {
+            font-size: 28px;
+            color: #007acc;
             margin-bottom: 20px;
         }
 
-        h1 {
-            font-size: 36px;
-            color: #007acc;
-        }
-
-        p {
+        /* User Details Section */
+        .user-details {
+            margin-bottom: 20px;
             font-size: 18px;
-            margin-bottom: 15px;
-            color: #333;
+            color: #555;
         }
 
-        .intro {
-            max-width: 600px;
-            margin: 0 auto;
-            font-style: italic;
+        /* Search Bar */
+        .search-bar {
+            margin-bottom: 20px;
         }
 
-        /* Links Section */
-        .links {
+        .search-bar input {
+            padding: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Certification List */
+        .certifications {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 20px;
-            padding: 40px 0;
+            padding: 20px 0;
         }
 
-        .link-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            padding: 20px;
-            width: 180px;
-            background-color: #fff;
+        .certification-card {
+            background: #fff;
             border: 1px solid #ddd;
             border-radius: 10px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .link-card i {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: #007acc;
-        }
-
-        .link-card span {
-            font-size: 18px;
-            color: #333;
-        }
-
-        .link-card:hover {
+        .certification-card:hover {
             transform: scale(1.05);
             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .certification-image {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        /* Print and Download Buttons */
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .print-btn {
+            background-color: #007acc;
+            color: #fff;
+        }
+
+        .download-btn {
+            background-color: #4CAF50;
+            color: #fff;
         }
 
         /* Footer Section */
@@ -142,17 +152,7 @@
             padding: 20px 0;
             background-color: #007acc;
             color: #fff;
-        }
-
-        .social-icons a {
-            margin: 0 10px;
-            color: #fff;
-            font-size: 20px;
-            text-decoration: none;
-        }
-
-        .social-icons a:hover {
-            color: #66ccff;
+            margin-top: auto; /* Pushes footer to the bottom */
         }
 
         /* Modal Styles */
@@ -176,6 +176,7 @@
             padding: 20px;
             width: 300px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
 
         .modal-header {
@@ -184,26 +185,12 @@
             margin-bottom: 10px;
         }
 
-        .modal-input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .modal-button {
-            padding: 10px 20px;
-            background-color: #007acc;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .modal-button:hover {
-            background-color: #005b99;
         }
 
         /* Media Queries for Small Screens */
@@ -224,74 +211,20 @@
                 margin-bottom: 10px;
             }
 
-            .hero {
-                padding: 30px 10px;
-            }
-
-            h1 {
-                font-size: 28px;
-            }
-
-            .profile img {
-                width: 120px;
-                height: 120px;
-            }
-
-            p {
-                font-size: 16px;
-            }
-
-            .links {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .link-card {
-                width: 90%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 10px;
-            }
-
-            nav ul li a {
-                font-size: 14px;
-            }
-
-            .profile img {
-                width: 100px;
-                height: 100px;
-            }
-
-            h1 {
+            h2 {
                 font-size: 24px;
             }
 
-            p {
-                font-size: 14px;
-            }
-
-            .link-card {
-                width: 100%;
-            }
-
-            footer {
-                font-size: 14px;
-                padding: 10px 0;
-            }
-
-            .social-icons a {
-                font-size: 18px;
+            .certification-card {
+                width: 90%;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
-        <h1>Juniormeshack Odondi - Certifications</h1>
-       
+        <h1>Odondi</h1>
         <nav>
             <ul>
                 <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
@@ -308,27 +241,119 @@
     <main>
         <section>
             <h2>My Certifications</h2>
-            <ul>
-                <li onclick="showCertificate('cert1')">Certified in PHP and MySQL Development - SoloLearn, 2024</li>
-                <li onclick="showCertificate('cert2')">Information Technology Support - SoloLearn, 2024</li>
-                <li onclick="showCertificate('cert3')">HTML5 and CSS3 Specialist - SoloLearn, 2023</li>
-            </ul>
+            <div class="user-details">
+                <strong>Juniormeshack IT</strong><br>
+                <em>Passionate about technology and continuous learning!</em>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search certifications..." onkeyup="searchCertificates()">
+            </div>
+            <div class="certifications" id="certification-list">
+                <div class="certification-card" onclick="showCertificate('cert1')">
+                    <img src="path/to/cert1.jpg" alt="Certification in PHP and MySQL Development" class="certification-image">
+                    <p>Certified in PHP and MySQL Development</p>
+                </div>
+                <div class="certification-card" onclick="showCertificate('cert2')">
+                    <img src="path/to/cert2.jpg" alt="Information Technology Support" class="certification-image">
+                    <p>Information Technology Support</p>
+                </div>
+                <div class="certification-card" onclick="showCertificate('cert3')">
+                    <img src="path/to/cert3.jpg" alt="HTML5 and CSS3 Specialist" class="certification-image">
+                    <p>HTML5 and CSS3 Specialist</p>
+                </div>
+                <div class="certification-card" onclick="showCertificate('highschool')">
+                    <img src="path/to/highschool.jpg" alt="High School Certificate" class="certification-image">
+                    <p>High School Certificate</p>
+                </div>
+                <div class="certification-card" onclick="showCertificate('diploma')">
+                    <img src="path/to/diploma.jpg" alt="Diploma Certificate" class="certification-image">
+                    <p>Diploma in Business Information Communication Technology</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="print-btn" onclick="window.print()">Print Certificates</button>
+                <button class="download-btn" onclick="downloadCertificates()">Download Certificates</button>
+            </div>
         </section>
+
+        <!-- Certificate Modal -->
+        <div class="modal" id="certModal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="modal-header" id="modalHeader"></div>
+                <img id="modalImage" src="" alt="Certification" style="width: 100%; height: auto; border-radius: 5px;">
+                <div id="modalDescription"></div>
+            </div>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 panther_zulu.com. All rights reserved.</p>
+        <p>&copy; 2024 Odondi. All Rights Reserved.</p>
     </footer>
 
-    <!-- Modal for certificates -->
-    <div id="cert1" class="modal" role="dialog" aria-modal="true">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('cert1')" aria-label="Close">&times;</span>
-            <h2>PHP and MySQL Development</h2>
-            <p>Certified by SoloLearn in 2024.</p>
-        </div>
-    </div>
+    <script>
+        // JavaScript for handling modals and search functionality
+        function showCertificate(cert) {
+            const certDetails = {
+                'cert1': {
+                    title: "Certified in PHP and MySQL Development",
+                    image: "path/to/cert1.jpg",
+                    description: "A comprehensive course covering the fundamentals of PHP and MySQL."
+                },
+                'cert2': {
+                    title: "Information Technology Support",
+                    image: "path/to/cert2.jpg",
+                    description: "Certification that validates skills in IT support."
+                },
+                'cert3': {
+                    title: "HTML5 and CSS3 Specialist",
+                    image: "path/to/cert3.jpg",
+                    description: "Demonstrated expertise in HTML5 and CSS3."
+                },
+                'highschool': {
+                    title: "High School Certificate",
+                    image: "path/to/highschool.jpg",
+                    description: "Certificate awarded upon completion of secondary education."
+                },
+                'diploma': {
+                    title: "Diploma in Business Information Communication Technology",
+                    image: "path/to/diploma.jpg",
+                    description: "A diploma focusing on the intersection of business and technology."
+                }
+            };
 
-   
+            const { title, image, description } = certDetails[cert];
+
+            document.getElementById('modalHeader').innerText = title;
+            document.getElementById('modalImage').src = image;
+            document.getElementById('modalDescription').innerText = description;
+
+            document.getElementById('certModal').style.display = 'flex'; // Show the modal
+        }
+
+        function closeModal() {
+            document.getElementById('certModal').style.display = 'none'; // Hide the modal
+        }
+
+        function searchCertificates() {
+            const input = document.getElementById('search').value.toLowerCase();
+            const certificationCards = document.querySelectorAll('.certification-card');
+
+            certificationCards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        function downloadCertificates() {
+            // Placeholder function for downloading certificates
+            alert("Download functionality to be implemented.");
+        }
+    </script>
 </body>
+
 </html>
