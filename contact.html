@@ -61,7 +61,8 @@
             flex: 1;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             color: #007acc;
             margin-bottom: 10px;
         }
@@ -74,7 +75,8 @@
             font-size: 28px;
         }
 
-        p, li {
+        p,
+        li {
             font-size: 18px;
             margin-bottom: 15px;
             color: #333;
@@ -96,7 +98,8 @@
             font-weight: bold;
         }
 
-        .form-group input, .form-group textarea {
+        .form-group input,
+        .form-group textarea {
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
@@ -191,7 +194,8 @@
                 font-size: 20px;
             }
 
-            p, li {
+            p,
+            li {
                 font-size: 16px;
             }
         }
@@ -232,6 +236,13 @@
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
+            <div class="social-links">
+                <h3>Follow Me</h3>
+                <a href="https://wa.me/+2540717778146" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
         </section>
     </main>
 
@@ -253,7 +264,7 @@
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
 
-            fetch('/api/send-email', {
+            fetch('/api/server', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -289,29 +300,21 @@
             });
         });
 
-        // Smooth scrolling for navbar links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Back to Top Button
+        // Smooth scrolling to top
         const backToTopButton = document.getElementById('back-to-top');
-
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 300) {
-                backToTopButton.style.display = 'flex';
+        window.onscroll = function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopButton.style.display = "block";
             } else {
-                backToTopButton.style.display = 'none';
+                backToTopButton.style.display = "none";
             }
-        });
+        };
 
         backToTopButton.addEventListener('click', function () {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
