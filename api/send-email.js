@@ -1,4 +1,6 @@
 const nodemailer = require('nodemailer');
+
+// Load environment variables (Vercel automatically uses the .env.local file during development)
 require('dotenv').config();
 
 export default async function handler(req, res) {
@@ -25,17 +27,17 @@ export default async function handler(req, res) {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
         },
-        logger: true,  
-        debug: true    
+        logger: true,  // Enable logging
+        debug: true    // Show debug output
     });
 
     // Mail options
     const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: 'odondimeshack1@gmail.com',
-        subject: `Message from ${name} (${email})`,
-        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-        html: `<h3>Message from ${name} (${email})</h3><p>${message}</p>`
+        from: process.env.EMAIL_USER, // Sender address (your email)
+        to: 'davidngunzu511@gmail.com', // Recipient email
+        subject: `Message from ${name} (${email})`, // Include sender's name and email
+        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`, // Plain text version
+        html: `<h3>Message from ${name} (${email})</h3><p>${message}</p>` // HTML version for formatting
     };
 
     // Send the email
@@ -44,7 +46,6 @@ export default async function handler(req, res) {
         return res.status(200).json({ message: 'Email sent successfully', info: info.response });
     } catch (error) {
         console.error('Error sending email:', error);
-        const errorMessage = error.response ? error.response : error.message;
-        return res.status(500).json({ message: 'Error sending email', error: errorMessage });
+        return res.status(500).json({ message: 'Error sending email', error: error.message });
     }
 }

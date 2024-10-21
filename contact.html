@@ -4,311 +4,592 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Juniormeshack Odondi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Evans Ochieng - Economics Student</title>
+    <link rel="stylesheet" href="index_styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add Toastify.js from CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+
     <style>
-        /* General Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Custom Navbar Styles */
+        .navbar {
+            background-color: #0D3B66;
+            /* Dark background for visibility */
         }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            color: #333;
-            background: #e0f7ff;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+        .nav-link {
+            color: white;
+            /* Text color for nav links */
         }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 10%;
-            background-color: #007acc;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        .nav-link:hover {
+            color: #f8f9fa;
+            /* Light color on hover */
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffffff;
+        .navbar-toggler {
+            border: none;
+            /* Remove border */
+            background-color: transparent;
+            /* Make the toggler background transparent */
         }
 
-        nav {
-            display: flex;
+        .navbar-toggler:focus {
+            outline: none;
+            /* Remove outline on focus */
         }
 
-        nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 16px;
-            padding: 5px 10px;
-            transition: background-color 0.3s ease;
+        .navbar-toggler-icon {
+            width: 30px;
+            /* Width of the icon */
+            height: 30px;
+            /* Height of the icon */
+            position: relative;
+            /* Enable positioning of child elements */
         }
 
-        nav a:hover {
-            background-color: #005b99;
-            border-radius: 5px;
-        }
-
-        main {
-            padding: 20px 10%;
-            flex: 1;
-        }
-
-        h1,
-        h2 {
-            color: #007acc;
-            margin-bottom: 10px;
-        }
-
-        h1 {
-            font-size: 36px;
-        }
-
-        h2 {
-            font-size: 28px;
-        }
-
-        p,
-        li {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        .navbar-toggler-icon span {
+            display: block;
+            /* Make spans block elements */
             width: 100%;
+            /* Full width */
+            height: 4px;
+            /* Thickness of the lines */
+            background-color: white;
+            /* Color of the lines */
+            margin: 6px 0;
+            /* Spacing between lines */
+            transition: all 0.3s ease;
+            /* Smooth transition */
+            border-radius: 2px;
+            /* Rounded edges */
         }
 
-        .form-group textarea {
-            resize: vertical;
+        /* Fade-in effect */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            /* Increased translate value for more noticeable fade */
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+            /* Slower transition for more visibility */
         }
 
-        .submit-btn {
-            padding: 10px;
-            background-color: #007acc;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s ease;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .submit-btn:hover {
-            background-color: #005b99;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #007acc;
-            color: #ffffff;
-        }
-
-        .social-links {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .social-links a {
-            margin: 0 10px;
-            color: #ffffff;
-            font-size: 28px;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #005b99;
-        }
-
-        /* Back to Top Button */
+        /* Back to top button */
         .back-to-top {
-            display: none;
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #007acc;
+            bottom: 50px;
+            /* Raised position */
+            right: 30px;
+            background-color: #0D3B66;
             color: white;
             border: none;
-            padding: 10px;
             border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: none;
+            /* Hidden by default */
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            font-size: 24px;
+            z-index: 1000;
         }
 
         .back-to-top:hover {
-            background-color: #005b99;
+            background-color: #f8f9fa;
+            /* Change on hover */
+            color: #0D3B66;
+            /* Dark color */
+        }
+
+        .social-media-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            /* Adjust the gap between icons */
+        }
+
+        .social-media-icon {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            /* Adjust the gap between icons */
+        }
+
+        .social-icon {
+            font-size: 24px;
+            /* Icon size */
+            color: #f5f5f5;
+            /* Icon color */
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: #fa06d1;
+            /* Color on hover */
+        }
+
+        .social-icons {
+            font-size: 24px;
+            /* Icon size */
+            color: #050303;
+            /* Icon color */
+            text-decoration: none;
+        }
+
+        .social-icons:hover {
+            color: #007bff;
+            /* Color on hover */
+        }
+
+        .footer {
+            background-color: #050f63;
+            /* or any color you prefer */
+            color: #fff;
+            /* text color */
+            text-align: center;
+            /* center the text */
+            padding: 20px 0;
+            /* padding for space */
+            position: relative;
+            /* normal flow */
+            bottom: 0;
+            /* align to bottom */
+            width: 100%;
+            /* full width */
+            z-index: 1;
+            /* ensure it's above other elements */
+        }
+
+        .container {
+            max-width: 1200px;
+            /* your max width */
+            margin: auto;
+            /* center align */
+            padding: 0 15px;
+            /* padding on sides */
+        }
+
+        .footer .container {
+            display: contents;
+            align-items: baseline;
+            /* Vertically centers items */
+            justify-content: space-between;
+            /* Spreads out items */
+        }
+
+        .created-by {
+            margin-left: 20px;
+            /* Space from social icons */
+            /* Adjust font size and color if needed */
+            font-size: 15px;
+            /* Example font size */
+            color: #f5f4f4;
+            /* Example text color */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            /* Space out brand and collapsible section */
+            align-items: center;
+            /* Center items vertically */
+        }
+
+        .social-media-icons {
+            display: flex;
+            /* Ensure icons are in a row */
+            justify-content: center;
+            /* Center icons */
+            flex-grow: 1;
+            /* Allow icons to grow to occupy available space */
+        }
+
+        @media (min-width: 992px) {
+            .collapse.navbar-collapse {
+                display: flex !important;
+                /* Ensure the collapse section is always visible */
+            }
+
+            .social-media-icons {
+                margin-right: auto;
+                /* Push icons to the center */
+                margin-left: auto;
+                /* Push icons to the center */
+            }
+        }
+
+        .navbar-nav {
+            display: flex;
+            /* Make nav items align horizontally */
+        }
+
+        .social-iconics {
+            font-size: 18px;
+            /* Change this value to make icons smaller or larger */
         }
 
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 15px;
-            }
 
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav a {
-                margin-left: 0;
-                margin-bottom: 10px;
+            /* Adjust for mobile view if needed */
+            .social-icon {
+                font-size: 16px;
+                /* Smaller size for mobile, if desired */
             }
         }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 24px;
-            }
+        .social-iconics {
+            font-size: 20px;
+            /* Icon size */
+            color: #f5f5f5;
+            /* Icon color */
+            text-decoration: none;
+        }
 
-            h2 {
-                font-size: 20px;
-            }
-
-            p,
-            li {
-                font-size: 16px;
-            }
+        .social-iconics:hover {
+            color: #fa06d1;
+            /* Color on hover */
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1 class="logo">Contact</h1>
-        <nav>
-            <a href="index.html"><i class="fas fa-home"></i> Home</a>
-            <a href="./about_me.html"><i class="fas fa-user"></i> About Me</a>
-            <a href="./experience.html"><i class="fas fa-briefcase"></i> Experience</a>
-            <a href="./projects.html"><i class="fas fa-folder-open"></i> Projects</a>
-            <a href="./skills.html"><i class="fas fa-code"></i> Skills</a>
-            <a href="./education.html"><i class="fas fa-graduation-cap"></i> Education</a>
-            <a href="./certifications.html"><i class="fas fa-certificate"></i> Certifications</a>
-            <a href="#"><i class="fas fa-envelope"></i> Contact</a>
-        </nav>
-    </header>
 
-    <main>
-        <section>
-            <h2>Get in Touch</h2>
-            <p>If you have any questions or would like to reach out, please choose one of the options below:</p>
-            <form id="contact-form" class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-            <div class="social-links">
-                <h3>Follow Me</h3>
-                <a href="https://wa.me/+2540717778146" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Evans Ochieng</a>
+        <div class="d-flex justify-content-center w-0"></div>
+        <div class="social-media-icons d-flex">
+            <!-- Phone Icon -->
+            <a href="tel:+254794987153" class="social-iconics mx-2" title="Phone">
+                <i class="fas fa-phone-alt"></i>
+            </a>
+            <!-- WhatsApp Icon -->
+            <a href="https://wa.me/254794987153" target="_blank" class="social-iconics mx-2" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <!-- Email Icon -->
+            <a href="mailto:evochieng44@gmail.com" class="social-iconics mx-2" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="navbar-toggler-icon">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-        </section>
-    </main>
+        </button>
 
-    <footer>
-        <p>&copy; 2024 Juniormeshack Odondi. All Rights Reserved.</p>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+    <section id="home" class="hero fade-in">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2>Hi, I'm Evans Ochieng</h2>
+            <p>An Economics Student at the University of Nairobi, Passionate about Data Analysis and Economic Research.
+            </p>
+            <!-- "Learn More About Me" button -->
+            <a href="#about" class="cta-btn">Learn More About Me</a>
+            <!-- "Download Resume" button should be below "Learn More" -->
+            <a href="Evans_Ochieng_CV(1).docx" class="cta-btn">Download Resume</a>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <!-- About Section -->
+    <section id="about" class="about-section fade-in">
+        <div class="container">
+            <h2>About Evans Ochieng</h2>
+            <p>Hello! I'm Evans Ochieng, an Economics student at the University of Nairobi with a passion for financial
+                analysis, economic research, and data-driven decision-making. I'm committed to understanding global
+                economic trends and making impactful contributions to the field.</p>
+
+            <!-- Download Resume Button -->
+            <a href="Evans_Ochieng_CV.pdf" download="Evans_Ochieng_Resume" class="download-btn">Download Resume</a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section fade-in">
+        <div class="container">
+            <h2>Key Skills</h2>
+            <div class="skills-list">
+                <div class="skill">
+                    <div class="skill-image">
+                        <img src="financial_analysis.jpeg" alt="Financial Analysis" class="fade-image">
+                    </div>
+                    <h3>Financial Analysis</h3>
+                    <p>Expert in analyzing financial data to help organizations make informed decisions.</p>
+                </div>
+                <div class="skill">
+                    <div class="skill-image">
+                        <img src="data_interpretation.jpeg" alt="Data Interpretation" class="fade-image">
+                    </div>
+                    <h3>Data Interpretation</h3>
+                    <p>Proficient in interpreting complex data sets and identifying trends.</p>
+                </div>
+                <div class="skill">
+                    <div class="skill-image">
+                        <img src="research_methodology.jpeg" alt="Research Methodology" class="fade-image">
+                    </div>
+                    <h3>Research Methodology</h3>
+                    <p>Strong research skills with experience in academic and professional economics research.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section fade-in">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-list">
+                <div class="education-item">
+                    <h3>Bachelor of Economics</h3>
+                    <p>University of Nairobi - Expected Graduation: 2025</p>
+                </div>
+                <div class="education-item">
+                    <h3>Relevant Coursework</h3>
+                    <ul>
+                        <li>Macroeconomic Theory</li>
+                        <li>Financial Markets and Institutions</li>
+                        <li>Data Analysis and Econometrics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section fade-in">
+        <div class="container">
+            <h2>Academic Projects</h2>
+            <div class="project-list">
+                <div class="project-item">
+                    <h3>Economic Impact of Digital Currency</h3>
+                    <p>Explored the economic effects of digital currency adoption in Kenya, analyzing its potential to
+                        drive financial inclusion.</p>
+                </div>
+                <div class="project-item">
+                    <h3>Data-Driven Inflation Trends</h3>
+                    <p>Conducted a detailed analysis of Kenya’s inflation trends using econometric models to predict
+                        future movements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section with Input Form -->
+    <!-- Include Font Awesome for icons (add this in the <head> section) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Contact Section with Input Form -->
+    <section id="contact" class="contact-section fade-in">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>If you'd like to reach out to me for opportunities or collaborations, feel free to send me a message:</p>
+            <form id="contact-form">
+                <div class="input-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="input-group">
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+
+            <!-- Social Media and Phone Icons -->
+            <div class="social-media-icon" style="margin-top: 20px; text-align: center;">
+                <h3>Connect with me:</h3>
+                <a href="https://www.facebook.com" target="_blank" class="social-icons" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.twitter.com" target="_blank" class="social-icons" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com" target="_blank" class="social-icons" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="tel:+254794987153" class="social-icons" title="Phone">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+                <!-- Email Icon -->
+                <a href="mailto:evochieng44@gmail.com" class="social-icons" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Evans Ochieng. All rights reserved.</p>
+            <div class="social-media-icons">
+                <a href="https://www.facebook.com" target="_blank" class="social-icon" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.twitter.com" target="_blank" class="social-icon" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com" target="_blank" class="social-icon" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="tel:+254794987153" class="social-icon" title="Phone">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+                <!-- WhatsApp Icon -->
+                <a href="https://wa.me/254794987153" target="_blank" class="social-icon" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <!-- Email Icon -->
+                <a href="mailto:evochieng44@gmail.com" class="social-icon" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <span class="created-by" style="float: right;">
+                Created by Startec Technologies <span style="color: red;">&hearts;</span>
+            </span>
+        </div>
     </footer>
 
-    <button class="back-to-top" id="back-to-top">&#8679;</button>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
 
     <script>
         document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault();
+            e.preventDefault(); // Prevent form's default action
 
             const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
+            const data = Object.fromEntries(formData.entries()); // Convert form data to object
 
-            fetch('/api/server', {
+            fetch('/api/send-email', { // Use the Vercel serverless function route
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to send message');
-                }
-                return response.json();
-            })
-            .then(data => {
-                Toastify({
-                    text: "Message sent successfully!",
-                    duration: 3000,
-                    gravity: "top",
-                    position: "right",
-                    backgroundColor: "#28a745",
-                    close: true
-                }).showToast();
-                document.getElementById('contact-form').reset();
-            })
-            .catch(error => {
-                Toastify({
-                    text: "Failed to send message. Please try again.",
-                    duration: 3000,
-                    gravity: "top",
-                    position: "right",
-                    backgroundColor: "#dc3545",
-                    close: true
-                }).showToast();
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to send message'); // Error handling for failed requests
+                    }
+                    return response.json(); // Parse the response as JSON
+                })
+                .then(data => {
+                    // Show success toast notification
+                    Toastify({
+                        text: "Message sent successfully!",
+                        duration: 3000, // Duration in milliseconds
+                        gravity: "top", // Position: top or bottom
+                        position: "right", // Position: left, center, or right
+                        backgroundColor: "#28a745", // Success color
+                        close: true // Add close button
+                    }).showToast();
+
+                    document.getElementById('contact-form').reset(); // Clear form fields
+                })
+                .catch(error => {
+                    // Show error toast notification
+                    Toastify({
+                        text: "Failed to send message. Please try again.",
+                        duration: 3000,
+                        gravity: "top",
+                        position: "right",
+                        backgroundColor: "#dc3545", // Error color
+                        close: true
+                    }).showToast();
+                });
+        });
+
+        // Smooth Scrolling for Navbar Links
+        const navbarLinks = document.querySelectorAll('.nav-link');
+        navbarLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+
+
+
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top">
+        &#8679; <!-- Arrow up symbol -->
+    </button>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">&#8679;</button>
+
+    <!-- Smooth Scrolling -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
 
-        // Smooth scrolling to top
-        const backToTopButton = document.getElementById('back-to-top');
-        window.onscroll = function () {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                backToTopButton.style.display = "block";
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'flex';
             } else {
-                backToTopButton.style.display = "none";
+                backToTopButton.style.display = 'none';
             }
-        };
+        });
 
         backToTopButton.addEventListener('click', function () {
             window.scrollTo({
@@ -316,7 +597,29 @@
                 behavior: 'smooth'
             });
         });
+
+        // Fade-in Effect on Scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        function checkFadeIn() {
+            const triggerBottom = window.innerHeight * 0.8;
+
+            fadeElements.forEach(element => {
+                const boxTop = element.getBoundingClientRect().top;
+
+                if (boxTop < triggerBottom) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkFadeIn);
+        window.addEventListener('load', checkFadeIn); // Check on page load
     </script>
+</body>
+
+</html>
+
 </body>
 
 </html>
