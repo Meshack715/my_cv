@@ -1,346 +1,418 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juniormeshack Odondi - IT Professional Resume</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif; 
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odondi - CV</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            background-color: #f4f7fa; /* Softer background color */
-            color: #343a40;
-            height: 100vh;
-            overflow: auto;
-            display: flex;
-            flex-direction: column;
-        }
+    body {
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      background: #e0f7ff; /* Light blue background */
+    }
 
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
+    /* Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background-color: #007acc; /* Blue header */
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-        .greeting {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 1.5em;
-            color: white;
-        }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffffff; /* White text for the logo */
+    }
 
-        .profile-pic {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 5px solid white;
-            position: absolute;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
 
-        .profile-pic img {
-            width: 100%;
-            height: auto;
-        }
+    nav ul li {
+      margin-left: 20px;
+    }
 
-        header h1 {
-            font-size: 2.5em;
-            margin-top: 140px;
-        }
+    nav ul li a {
+      text-decoration: none;
+      color: #ffffff; /* White for navigation links */
+      font-size: 16px;
+      padding: 5px 10px;
+    }
 
-        header h2 {
-            font-size: 1.5em;
-            margin-top: 5px;
-        }
+    nav ul li a:hover {
+      background-color: #005b99; /* Darker blue on hover */
+      color: #ffffff;
+      border-radius: 5px;
+    }
 
-        /* Download Button Styles */
-        .download-btn {
-            background-color: #28a745; /* Green background for the button */
-            color: white;
-            padding: 10px 15px;
-            margin-top: 20px; /* Space between the button and other elements */
-            border: none;
-            border-radius: 5px; /* Rounded corners */
-            text-decoration: none;
-            font-size: 1.2em; /* Adjust font size */
-            display: inline-block; /* Display as block for padding */
-            transition: background 0.3s, transform 0.3s; /* Transition effects */
-        }
+    /* Profile Icon Styling */
+    .profile-icon {
+      font-size: 24px;
+      color: #ffffff;
+      cursor: pointer;
+    }
 
-        .download-btn:hover {
-            background-color: #218838; /* Darker green on hover */
-            transform: translateY(-2px); /* Slight lift on hover */
-        }
+    .profile-icon:hover {
+      color: #66ccff; /* Light blue on hover */
+    }
 
-        /* Navigation Styles */
-        nav {
-            background-color: #343a40;
-            padding: 10px 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-        }
+    /* Download CV Link */
+    .download-cv {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 10px;
+      background-color: #007acc; /* Blue button */
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
 
-        nav a {
-            color: white;
-            margin: 5px 10px; /* Reduced margin for smaller screens */
-            text-decoration: none;
-            font-size: 1.2em;
-            padding: 10px 15px;
-            transition: background 0.3s, color 0.3s;
-            display: inline-block; /* Make links block-level for better padding */
-            border-radius: 5px; /* Rounded corners */
-        }
+    .download-cv:hover {
+      background-color: #005b99; /* Darker blue on hover */
+    }
 
-        nav a:hover {
-            background-color: #007bff;
-            color: white;
-        }
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 50px 0;
+      background-color: #ffffff;
+    }
 
-        main {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    .profile img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
 
-        section {
-            margin-bottom: 30px;
-        }
+    h1 {
+      font-size: 36px;
+      color: #007acc; /* Blue header text */
+    }
 
-        h3 {
-            border-bottom: 3px solid #007bff;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-            font-size: 2em;
-            color: #007bff;
-        }
+    p {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #333;
+    }
 
-        ul {
-            list-style-type: square;
-            padding-left: 20px;
-            line-height: 1.6;
-        }
+    .intro {
+      max-width: 600px;
+      margin: 0 auto;
+      font-style: italic;
+    }
 
-        .card {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 10px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    /* Links Section */
+    .links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px 0;
+    }
 
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
+    .link-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      padding: 20px;
+      width: 180px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #007bff;
-            color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
+    .link-card i {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #007acc; /* Blue icons */
+    }
 
-        footer p {
-            margin: 0;
-        }
+    .link-card span {
+      font-size: 18px;
+      color: #333;
+    }
 
-        .social-icons a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 1.5em;
-            transition: color 0.3s;
-        }
+    .link-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    }
 
-        .social-icons a:hover {
-            color: #007bff;
-        }
+    /* Footer Section */
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #007acc; /* Blue footer */
+      color: #ffffff;
+    }
 
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2em;
-            }
+    .social-icons a {
+      margin: 0 10px;
+      color: #ffffff;
+      font-size: 20px;
+      text-decoration: none;
+    }
 
-            header h2 {
-                font-size: 1.2em;
-            }
+    .social-icons a:hover {
+      color: #66ccff; /* Light blue on hover */
+    }
 
-            .profile-pic {
-                width: 100px;
-                height: 100px;
-                top: 10px;
-            }
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
 
-            .greeting {
-                font-size: 1.2em;
-            }
+    .modal-content {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-            main {
-                padding: 15px;
-                margin: 15px; /* Adjust margin for smaller screens */
-            }
+    .modal-header {
+      font-size: 20px;
+      color: #007acc; /* Blue modal header */
+      margin-bottom: 10px;
+    }
 
-            nav a {
-                font-size: 1em;
-                padding: 8px 10px;
-                margin: 5px; /* Reduced margin for smaller screens */
-            }
+    .modal-input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
 
-            nav {
-                flex-direction: column; /* Stack items vertically on smaller screens */
-                align-items: center; /* Center align items */
-            }
+    .modal-button {
+      padding: 10px 20px;
+      background-color: #007acc;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-            nav a {
-                width: 90%; /* Make links wider for easier clicking */
-                text-align: center; /* Center text in links */
-            }
+    .modal-button:hover {
+      background-color: #005b99;
+    }
 
-            footer {
-                font-size: 0.9em; /* Smaller footer text */
-            }
+    /* Media Queries for Small Screens */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+      }
 
-            .social-icons a {
-                font-size: 1.2em; /* Smaller social icons */
-            }
-        }
-    </style>
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
+
+      .hero {
+        padding: 30px 10px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .profile img {
+        width: 120px;
+        height: 120px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .links {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .link-card {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 10px;
+      }
+
+      nav ul li a {
+        font-size: 14px;
+      }
+
+      .profile img {
+        width: 100px;
+        height: 100px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .link-card {
+        width: 100%;
+      }
+
+      footer {
+        font-size: 14px;
+        padding: 10px 0;
+      }
+
+      .social-icons a {
+        font-size: 18px;
+      }
+    }
+  </style>
+
+  <script>
+    function showModal() {
+      document.getElementById("modal").style.display = "flex";
+    }
+  
+    function hideModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  
+    function checkCredentials() {
+      const emailOrPhone = document.getElementById("emailOrPhone").value;
+      const password = document.getElementById("password").value;
+      const correctPassword = "vall@254"; // Replace with the desired password
+  
+      const validEmail = "gracevalentine655@gmail.com";
+      const validPhone = "0797823720";
+  
+      if ((emailOrPhone === validEmail || emailOrPhone === validPhone) && password === correctPassword) {
+          window.location.href = "./grace-dashboard.html"; // Redirect to dashboard
+      } else {
+          alert("Invalid credentials. Please try again.");
+      }
+    }
+  </script>
 </head>
 <body>
-    <header>
-        <div class="greeting" id="greeting"></div>
-        <div class="profile-pic">
-            <img src="./images/index_profile.jpg" alt="Profile Picture">
-        </div>
-        <h1>JUNIORMESHACK ODONDI</h1>
-        <h2>Information Technology Specialist</h2>
-        <a href="./Juniormeshack_CV.pdf" download="Juniormeshack_Odondi_Resume.pdf" class="download-btn">
-            <i class="fas fa-file-pdf"></i> Download PDF Resume
-        </a>
-    </header>
-
+  <!-- Header Section -->
+  <header>
+    <div class="logo">Juniormeshack Odondi</div>
     <nav>
-        <a href="./about_me.html"><i class="fas fa-user"></i> About Me</a>
-        <a href="./projects.html"><i class="fas fa-project-diagram"></i> Key Projects</a>
-        <a href="./skills.html"><i class="fas fa-cogs"></i> Skills</a>
-        <a href="./education.html"><i class="fas fa-graduation-cap"></i> Education</a>
-        <a href="./experience.html"><i class="fas fa-briefcase"></i> Work Experience</a>
-        <a href="./certifications.html"><i class="fas fa-certificate"></i> Certifications</a>
-        <a href="./contact.html"><i class="fas fa-envelope"></i> Contacts</a>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="./about_me.html">About Me</a></li>
+        <li><a href="./experience.html">Experience</a></li>
+        <li><a href="./projects.html">Projects</a></li>
+        <li><a href="./skills.html">Skills</a></li>
+        <li><a href="./education.html">Education</a></li>
+        <li><a href="./certifications.html">Certifications</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
     </nav>
+    <div class="profile-icon" onclick="showModal()">
+      <i class="fas fa-user"></i>
+    </div>
+  </header>
 
-    <main>
-        <section id="about">
-            <h3><a href="./about_me.html">About Me</a></h3>
-            <div class="card">
-                <p>An experienced IT professional specializing in full-stack web development and database management. I have a passion for leveraging technology to solve business problems and optimize operational efficiency. My focus is on building responsive websites, secure databases, and scalable IT systems.</p>
-            </div>
-        </section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="profile">
+      <img src="./images/IT_Logo_index.jpeg" alt="Odondi">
+    </div>
+    <h1>Odondi</h1>
+    <p class="intro">An experienced IT professional specializing in full-stack web development and database management. I have a passion for leveraging technology to solve business problems and optimize operational efficiency.</p>
+    <a href="grace-cv.pdf" download class="download-cv">Download My CV</a>
+  </section>
 
-        <section id="projects">
-            <h3><a href="./projects.html">Key Projects</a></h3>
-            <div class="card">
-                <ul>
-                    <li>Developed a dynamic e-commerce website.</li>
-                    <li>Created a responsive mobile application for a local business.</li>
-                    <li>Designed a database system for managing client information.</li>
-                </ul>
-            </div>
-        </section>
+  <!-- Links Section -->
+  <section class="links">
+    <a href="./about_me.html" class="link-card">
+      <i class="fas fa-user"></i>
+      <span>About Me</span>
+    </a>
+    <a href="./experience.html" class="link-card">
+      <i class="fas fa-briefcase"></i>
+      <span>Experience</span>
+    </a>
+    <a href="./projects.html" class="link-card">
+      <i class="fas fa-project-diagram"></i>
+      <span>Projects</span>
+    </a>
+    <a href="./skills.html" class="link-card">
+      <i class="fas fa-cogs"></i>
+      <span>Skills</span>
+    </a>
+    <a href="./education.html" class="link-card">
+      <i class="fas fa-graduation-cap"></i>
+      <span>Education</span>
+    </a>
+    <a href="./certifications.html" class="link-card">
+        <i class="fas fa-certificate"></i>
+        <span>Certifications</span>
+    </a>
+    
+    <a href="./contact.html" class="link-card">
+      <i class="fas fa-envelope"></i>
+      <span>Contact</span>
+    </a>
+  </section>
 
-        <section id="skills">
-            <h3><a href="./skills.html">Skills</a></h3>
-            <div class="card">
-                <ul>
-                    <li>Web Development: HTML, CSS, JavaScript, PHP</li>
-                    <li>Database Management: MySQL, MongoDB</li>
-                    <li>Cloud Computing: AWS, Azure</li>
-                </ul>
-            </div>
-        </section>
+  <!-- Footer Section -->
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/gracevalentine" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.twitter.com/gracevalentine" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/gracevalentine" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>&copy; 2024 Juniormeshack Odondi. All Rights Reserved.</p>
+  </footer>
 
-        <section id="education">
-            <h3><a href="./education.html">Education</a></h3>
-            <div class="card">
-                <ul>
-                    <li>Bachelor's Degree in Information Technology</li>
-                    <li>Certified Web Developer</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="experience">
-            <h3><a href="./experience.html">Work Experience</a></h3>
-            <div class="card">
-                <ul>
-                    <li>IT Specialist at XYZ Company (2022 - Present)</li>
-                    <li>Web Developer Intern at ABC Corp (2021 - 2022)</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="certifications">
-            <h3><a href="./certifications.html">Certifications</a></h3>
-            <div class="card">
-                <ul>
-                    <li>Certified Information Systems Security Professional (CISSP)</li>
-                    <li>Microsoft Certified: Azure Developer Associate</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Juniormeshack Odondi. All rights reserved.</p>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/juniormeshackodondi" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/juniormeshackodondi" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://twitter.com/juniormeshackodondi" target="_blank"><i class="fab fa-twitter"></i></a>
-        </div>
-    </footer>
-
-    <script>
-        function updateGreeting() {
-            const greetingDiv = document.getElementById('greeting');
-            const currentHour = new Date().getHours();
-            let greetingMessage = '';
-
-            if (currentHour < 12) {
-                greetingMessage = 'Good Morning!';
-            } else if (currentHour < 18) {
-                greetingMessage = 'Good Afternoon!';
-            } else {
-                greetingMessage = 'Good Evening!';
-            }
-
-            greetingDiv.innerText = greetingMessage;
-        }
-
-        updateGreeting();
-    </script>
+  <!-- Modal for Login -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">Login</div>
+      <input type="text" id="emailOrPhone" class="modal-input" placeholder="Email or Phone">
+      <input type="password" id="password" class="modal-input" placeholder="Password">
+      <button class="modal-button" onclick="checkCredentials()">Login</button>
+      <button class="modal-button" onclick="hideModal()">Cancel</button>
+    </div>
+  </div>
 </body>
 </html>

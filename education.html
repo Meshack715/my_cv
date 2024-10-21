@@ -1,162 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education - Juniormeshack Odondi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
             color: #333;
-            background-image: url('./images/education.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            transition: background 0.5s ease;
+            background: #e0f7ff; /* Light blue background */
         }
 
+        /* Header Styles */
         header {
-            background-color: rgba(0, 123, 255, 0.8);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background-color: #007acc; /* Blue header */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        header::after {
-            content: "";
-            display: block;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #ffdd57, transparent);
-            width: 100%;
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            transition: all 0.3s ease-in-out;
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff; /* White text for the logo */
         }
 
-        nav {
-            text-align: center;
-            margin: 15px 0;
-            flex-wrap: wrap;
+        nav ul {
+            list-style: none;
+            display: flex;
         }
 
-        nav a {
-            color: #ffffff; /* White color for better visibility */
-            margin: 0 10px;
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
             text-decoration: none;
-            font-size: 1.2em;
-            transition: color 0.3s, transform 0.3s, background-color 0.3s; /* Added transition for background color */
-            position: relative;
+            color: #ffffff; /* White for navigation links */
+            font-size: 16px;
             padding: 5px 10px;
-            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s;
         }
 
-        nav a:hover {
-            color: #ffdd57; /* Change text color on hover */
-            background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
-            transform: translateY(-3px); /* Lift effect */
-        }
-
-        main {
-            flex: 1;
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow-x: hidden;
-        }
-
-        h2 {
-            font-size: 2em;
-            color: #007bff;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 10px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            transition: background-color 0.3s, transform 0.3s;
-            padding: 10px;
+        nav ul li a:hover {
+            background-color: #005b99; /* Darker blue on hover */
             border-radius: 5px;
         }
 
-        li:hover {
-            background-color: #e9f5ff;
-            transform: scale(1.02);
+        /* Profile Icon Styling */
+        .profile-icon {
+            font-size: 24px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: color 0.3s;
         }
 
+        .profile-icon:hover {
+            color: #66ccff; /* Light blue on hover */
+        }
+
+        /* Download CV Link */
+        .download-cv {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #007acc; /* Blue button */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-cv:hover {
+            background-color: #005b99; /* Darker blue on hover */
+        }
+
+        /* Main Section */
+        main {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        h2 {
+            font-size: 36px;
+            color: #007acc; /* Blue header text */
+            margin-bottom: 20px;
+        }
+
+        .education-list {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Footer Section */
         footer {
             text-align: center;
-            padding: 10px 0;
-            background-color: rgba(0, 123, 255, 0.8);
-            color: white;
-            margin-top: 20px;
+            padding: 20px 0;
+            background-color: #007acc; /* Blue footer */
+            color: #ffffff;
         }
 
-        footer p {
-            margin: 0;
+        .social-icons a {
+            margin: 0 10px;
+            color: #ffffff;
+            font-size: 20px;
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8em;
+        .social-icons a:hover {
+            color: #66ccff; /* Light blue on hover */
+        }
+
+        /* Media Queries for Small Screens */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px;
             }
+
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+
+            main {
+                padding: 30px 10px;
+            }
+
             h2 {
-                font-size: 1.5em;
+                font-size: 28px;
             }
-            nav a {
-                font-size: 1em;
-                margin: 5px 0;
-                display: block;
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px;
             }
-            li {
-                font-size: 1em;
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 24px;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
-        <h1>Education</h1>
+        <div class="logo">Odondi</div>
         <nav>
-            <a href="./index.html"><i class="fas fa-home"></i> Home</a>
-            <a href="./about_me.html"><i class="fas fa-user"></i> About Me</a>
-            <a href="./skills.html"><i class="fas fa-cogs"></i> Skills</a>
-            <a href="./experience.html"><i class="fas fa-briefcase"></i> Experience</a>
-            <a href="./certifications.html"><i class="fas fa-certificate"></i> Certifications</a>
-            <a href="./contact.html"><i class="fas fa-envelope"></i> Contact</a>
+            <ul>
+                <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="./about_me.html"><i class="fas fa-user"></i> About Me</a></li>
+                <li><a href="./skills.html"><i class="fas fa-cogs"></i> Skills</a></li>
+                <li><a href="./experience.html"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="./certifications.html"><i class="fas fa-certificate"></i> Certifications</a></li>
+                <li><a href="./contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
-        <section>
-            <h2>My Education</h2>
-            <ul>
-                <li>Currently studying Information Technology (IT) - University of Eastern Africa Baraton</li>
-                <li>Diploma in Business Information Communication Technology - University of Eastern Africa Baraton, 2025</li>
-                <li>High School: Oriwo Boys High School, 2022</li>
-            </ul>
-        </section>
+        <h2>My Education</h2>
+        <ul class="education-list">
+            <li>Currently studying Information Technology (IT) - University of Eastern Africa Baraton</li>
+            <li>Diploma in Business Information Communication Technology - University of Eastern Africa Baraton, 2025</li>
+            <li>High School: Oriwo Boys High School, 2022</li>
+        </ul>
     </main>
 
     <footer>
         <p>&copy; 2024 panther_zulu.com. All rights reserved.</p>
     </footer>
 </body>
+
 </html>

@@ -1,95 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Projects - Juniormeshack Odondi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* General Styles */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            box-sizing: border-box;
         }
 
         body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background-image: url('./images/project.png');
-            background-size: cover;
-            background-position: center;
+            font-family: 'Arial', sans-serif;
             color: #333;
+            background: #e0f7ff; /* Light blue background */
         }
 
+        /* Header Styles */
         header {
-            background-color: rgba(0, 123, 255, 0.8);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background-color: #007acc; /* Blue header */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        header h2 {
-            font-size: 2.5em;
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff; /* White text for the logo */
         }
 
         nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff; /* White for navigation links */
+            font-size: 16px;
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #005b99; /* Darker blue on hover */
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #ffffff;
+        }
+
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #007acc; /* Blue header text */
+        }
+
+        h2 {
             text-align: center;
             margin: 20px 0;
         }
 
-        nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.2em;
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+            line-height: 1.5;
         }
 
-        nav a i {
-            margin-right: 5px;
+        .intro {
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
         }
 
-        main {
-            flex: 1;
-            max-width: 90%;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        section h2 {
-            font-size: 2em;
-            color: #007bff;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
+        /* Projects Section */
         .project {
-            background-color: #f9f9f9;
+            background-color: #ffffff;
             padding: 20px;
-            margin-bottom: 30px;
-            border-left: 5px solid #007bff;
-            border-radius: 8px;
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-
-        .project:hover {
-            background-color: #e9f3ff;
-            border-color: #0056b3;
-        }
-
-        .project h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            color: #007bff;
-        }
-
-        .project p {
-            font-size: 1.1em;
-            margin-bottom: 10px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 800px; /* Limiting width for better readability */
         }
 
         .tags {
@@ -98,65 +116,106 @@
 
         .tag {
             display: inline-block;
-            background-color: #007bff;
-            color: white;
+            background-color: #007acc;
+            color: #ffffff;
+            border-radius: 5px;
             padding: 5px 10px;
             margin-right: 5px;
-            border-radius: 5px;
-            font-size: 0.9em;
+            font-size: 14px;
         }
 
+        /* Footer Section */
         footer {
             text-align: center;
             padding: 20px 0;
-            background-color: #007bff;
-            color: white;
-            margin-top: 20px;
+            background-color: #007acc; /* Blue footer */
+            color: #ffffff;
         }
 
-        footer p {
-            margin: 0;
+        /* Media Queries for Small Screens */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+
+            .hero {
+                padding: 30px 10px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .profile img {
+                width: 120px;
+                height: 120px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .project {
+                padding: 15px;
+            }
         }
 
-        @media (max-width: 600px) {
-            header h2 {
-                font-size: 2em;
+        @media (max-width: 480px) {
+            header {
+                padding: 10px;
             }
 
-            section h2 {
-                font-size: 1.5em;
+            nav ul li a {
+                font-size: 14px;
             }
 
-            .project h3 {
-                font-size: 1.2em;
+            .profile img {
+                width: 100px;
+                height: 100px;
             }
 
-            .project p {
-                font-size: 1em;
+            h1 {
+                font-size: 24px;
             }
 
-            nav a {
-                font-size: 1em;
+            p {
+                font-size: 14px;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
-        <h2>My Completed Projects</h2>
+        <h2 class="logo">My Completed Projects</h2>
         <nav>
-            <a href="./index.html"><i class="fas fa-home"></i> Home</a>
-            <a href="./about_me.html"><i class="fas fa-user"></i> About Me</a>
-            <a href="./skills.html"><i class="fas fa-code"></i> Skills</a>
-            <a href="./experience.html"><i class="fas fa-briefcase"></i> Experience</a>
-            <a href="./education.html"><i class="fas fa-graduation-cap"></i> Education</a>
-            <a href="./certifications.html"><i class="fas fa-certificate"></i> Certifications</a>
-            <a href="./contact.html"><i class="fas fa-envelope"></i> Contact</a>
+            <ul>
+                <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="./about_me.html"><i class="fas fa-user"></i> About Me</a></li>
+                <li><a href="./experience.html"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="#"><i class="fas fa-folder"></i> Projects</a></li>
+                <li><a href="./skills.html"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="./education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="./certifications.html"><i class="fas fa-certificate"></i> Certifications</a></li>
+                <li><a href="./contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
-        <section>
+        <section class="hero">
             <h2>Projects I've Worked On</h2>
 
             <!-- Project 1 -->
@@ -206,12 +265,12 @@
                     <span class="tag">Laravel</span>
                 </div>
             </div>
-
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 panther_zulu.com. All rights reserved.</p>
+        <p>&copy; 2024 Juniormeshack Odondi. All rights reserved.</p>
     </footer>
 </body>
+
 </html>

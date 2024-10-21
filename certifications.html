@@ -6,222 +6,292 @@
     <title>Certifications - Juniormeshack Odondi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
-            color: #333;
+        /* General Styles */
+        * {
             margin: 0;
-            background-image: url('./images/certificate.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background: #e0f7ff; /* Light blue background */
+        }
+
+        /* Header Styles */
         header {
-            background-color: rgba(0, 123, 255, 0.8);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        nav {
             display: flex;
-            justify-content: center;
-            margin: 15px 0;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background-color: #007acc; /* Blue header */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        nav a {
-            color: #ffdd57;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.2em;
-            transition: color 0.3s, transform 0.3s;
-            padding: 5px 0;
-        }
-
-        nav a:hover {
-            color: #ffffff;
-            transform: translateY(-3px);
-        }
-
-        .hamburger {
-            display: none;
-            font-size: 1.5em;
-            color: white;
-            position: absolute;
-            right: 20px;
-            top: 30px;
-            cursor: pointer;
-        }
-
-        .hamburger.active .fas {
-            color: #ffdd57;
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
         }
 
         nav ul {
-            display: flex;
             list-style: none;
-            padding: 0;
-            margin: 0;
+            display: flex;
         }
 
         nav ul li {
-            margin: 0 10px;
+            margin-left: 20px;
         }
 
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                background-color: rgba(0, 123, 255, 0.9);
-                position: absolute;
-                width: 100%;
-                top: 70px;
-                left: 0;
-                padding: 20px;
-                text-align: center;
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            nav a {
-                font-size: 1.5em;
-                margin: 15px 0;
-            }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            padding: 5px 10px;
         }
 
-        main {
-            flex: 1;
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 8px;
+        nav ul li a:hover {
+            background-color: #005b99;
+            border-radius: 5px;
         }
 
-        h1 {
-            font-size: 2.5em;
+        /* Profile Icon Styling */
+        .hamburger {
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
         }
 
-        h2 {
-            font-size: 2em;
-            color: #007bff;
+        .hamburger:hover {
+            color: #66ccff;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #fff;
+        }
+
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
             margin-bottom: 20px;
         }
 
-        ul {
-            padding-left: 20px;
+        h1 {
+            font-size: 36px;
+            color: #007acc;
         }
 
-        li {
-            font-size: 1.2em;
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .intro {
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        /* Links Section */
+        .links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 40px 0;
+        }
+
+        .link-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            padding: 20px;
+            width: 180px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .link-card i {
+            font-size: 36px;
             margin-bottom: 10px;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-            list-style-type: none;
+            color: #007acc;
         }
 
-        li:hover {
-            background-color: #e9f5ff;
-            transform: scale(1.02);
+        .link-card span {
+            font-size: 18px;
+            color: #333;
         }
 
+        .link-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Section */
         footer {
             text-align: center;
-            padding: 10px 0;
-            background-color: #007bff;
-            color: white;
+            padding: 20px 0;
+            background-color: #007acc;
+            color: #fff;
         }
 
-        footer p {
-            margin: 0;
+        .social-icons a {
+            margin: 0 10px;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
         }
 
+        .social-icons a:hover {
+            color: #66ccff;
+        }
+
+        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
+            z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
         }
 
         .modal-content {
-            margin: 10% auto;
-            padding: 20px;
-            background-color: white;
-            max-width: 600px;
-            text-align: center;
+            background-color: #fff;
             border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .modal-content img {
-            max-width: 100%;
-            height: auto;
+        .modal-header {
+            font-size: 20px;
+            color: #007acc;
+            margin-bottom: 10px;
         }
 
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            font-size: 40px;
-            font-weight: bold;
-            color: white;
-            cursor: pointer;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #ffdd57;
-        }
-
-        /* Icon-based Button Design for View Certifications */
-        .cert-btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 15px 25px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
+        .modal-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 1.5em;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
-            margin-top: 30px;
+        }
+
+        .modal-button {
+            padding: 10px 20px;
+            background-color: #007acc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        .cert-btn i {
-            margin-right: 10px; /* Space between icons and text */
+        .modal-button:hover {
+            background-color: #005b99;
         }
 
-        .cert-btn:hover {
-            background-color: #0056b3;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            transform: scale(1.05);
+        /* Media Queries for Small Screens */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+
+            .hero {
+                padding: 30px 10px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .profile img {
+                width: 120px;
+                height: 120px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .links {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .link-card {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            .profile img {
+                width: 100px;
+                height: 100px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .link-card {
+                width: 100%;
+            }
+
+            footer {
+                font-size: 14px;
+                padding: 10px 0;
+            }
+
+            .social-icons a {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Juniormeshack Odondi - Certifications</h1>
-        <div class="hamburger" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </div>
+       
         <nav>
             <ul>
                 <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
@@ -239,13 +309,10 @@
         <section>
             <h2>My Certifications</h2>
             <ul>
-                <li onclick="showCertificate('cert1')">Certified in PHP and MySQL Development - SoloLearn, Inc., 2024</li>
-                <li onclick="showCertificate('cert2')">Information Technology Support - SoloLearn, Inc., 2024</li>
-                <li onclick="showCertificate('cert3')">HTML5 and CSS3 Specialist - SoloLearn, Inc., 2023</li>
+                <li onclick="showCertificate('cert1')">Certified in PHP and MySQL Development - SoloLearn, 2024</li>
+                <li onclick="showCertificate('cert2')">Information Technology Support - SoloLearn, 2024</li>
+                <li onclick="showCertificate('cert3')">HTML5 and CSS3 Specialist - SoloLearn, 2023</li>
             </ul>
-
-            <!-- Icon-based Button for View Certifications -->
-           
         </section>
     </main>
 
@@ -254,46 +321,14 @@
     </footer>
 
     <!-- Modal for certificates -->
-    <div id="cert1" class="modal">
+    <div id="cert1" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('cert1')">&times;</span>
-            <h2>PHP and MySQL Development - SoloLearn</h2>
-            <img src="./certificates/php_mysql_certificate.jpg" alt="PHP and MySQL Certificate">
-            <p>Certified for completing a comprehensive course on PHP and MySQL, including database management, web development techniques, and secure coding practices.</p>
+            <span class="close" onclick="closeModal('cert1')" aria-label="Close">&times;</span>
+            <h2>PHP and MySQL Development</h2>
+            <p>Certified by SoloLearn in 2024.</p>
         </div>
     </div>
 
-    <div id="cert2" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('cert2')">&times;</span>
-            <h2>IT Support - SoloLearn</h2>
-            <img src="./certificates/it_support_certificate.jpg" alt="IT Support Certificate">
-            <p>Certified for learning essential skills in providing IT support, troubleshooting, and system administration tasks.</p>
-        </div>
-    </div>
-
-    <div id="cert3" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('cert3')">&times;</span>
-            <h2>HTML5 and CSS3 Specialist - SoloLearn</h2>
-            <img src="./certificates/html_css_certificate.jpg" alt="HTML5 and CSS3 Certificate">
-            <p>Specialized in HTML5 and CSS3 development for creating responsive, modern, and accessible web pages.</p>
-        </div>
-    </div>
-
-    <script>
-        function showCertificate(certId) {
-            document.getElementById(certId).style.display = "block";
-        }
-
-        function closeModal(certId) {
-            document.getElementById(certId).style.display = "none";
-        }
-
-        function toggleMenu() {
-            var nav = document.querySelector("nav ul");
-            nav.classList.toggle("active");
-        }
-    </script>
+   
 </body>
 </html>
