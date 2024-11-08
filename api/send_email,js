@@ -1,49 +1,44 @@
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
-module.exports = async (req, res) => {
-    // Only accept POST requests
-    if (req.method !== 'POST') {
-        return res.status(405).json({ message: 'Only POST requests allowed' });
-    }
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).send({ message: 'Only POST requests allowed' });
+  }
 
-    // Extract form data
-    const { name, email, subject, message } = req.body;
+  const { name, email, subject, message } = req.body;
 
-    // Ensure all fields are filled out
-    if (!name || !email || !subject || !message) {
-        return res.status(400).json({ message: 'All fields are required.' });
-    }
+  if (!name || !email || !subject || !message) {
+    return res.status(400).json({ message: 'All fields are required.' });
+  }
 
-    // Ensure environment variables are set
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-        return res.status(500).json({ message: 'Email credentials not set in environment variables.' });
-    }
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    return res.status(500).json({ message: 'Environment variables for email credentials are not set.' });
+  }
 
-    // Create the nodemailer transporter
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL_USER,  // Your email (from .env)
-            pass: process.env.EMAIL_PASS   // Your email password (from .env)
-        }
-    });
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
+    },
+    logger: true,
+    debug: true
+  });
 
-    // Define the email options
-    const mailOptions = {
-        from: `MESHACK_CV <${process.env.EMAIL_USER}>`,
-        to: 'odondimeshack1@gmail.com',  // Your email address
-        subject: `Message from ${name} (${email}): ${subject}`,
-        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-        html: `<h3>Message from ${name} (${email}): ${subject}</h3><p>${message}</p>`
-    };
+  const mailOptions = {
+    from: `MESHACK_CV <${process.env.EMAIL_USER}>`,
+    to: 'odondimeshack1@gmail.com',
+    subject: `Message from ${name} (${email}): ${subject}`,
+    text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+    html: `<h3>Message from ${name} (${email}): ${subject}</h3><p>${message}</p>`
+  };
 
-    try {
-        // Send the email
-        const info = await transporter.sendMail(mailOptions);
-        return res.status(200).json({ message: 'Email sent successfully', info: info.response });
-    } catch (error) {
-        console.error('Error sending email:', error);
-        return res.status(500).json({ message: 'Error sending email', error: error.message });
-    }
-};
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    return res.status(200).json({ message: 'Email sent successfully', info: info.response });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    return res.status(500).json({ message: 'Error sending email', error: error.message });
+  }
+}
