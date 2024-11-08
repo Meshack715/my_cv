@@ -25,8 +25,6 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
  
 </head>
 
@@ -128,32 +126,40 @@
           </div>
 
           <div class="col-lg-7">
-            <form id="contact-form" class="email-form" data-aos="fade-up" data-aos-delay="200">
+            <form id="contact-form" action="/api/send_email" method="POST" onSubmit="submitForm(event)">
+            
               <div class="row gy-4">
-                  <div class="col-md-6">
-                      <label for="name-field" class="pb-2">Your Name</label>
-                      <input type="text" name="name" id="name-field" class="form-control" required>
-                  </div>
-                  <div class="col-md-6">
-                      <label for="email-field" class="pb-2">Your Email</label>
-                      <input type="email" class="form-control" name="email" id="email-field" required>
-                  </div>
-                  <div class="col-md-12">
-                      <label for="subject-field" class="pb-2">Subject</label>
-                      <input type="text" class="form-control" name="subject" id="subject-field" required>
-                  </div>
-                  <div class="col-md-12">
-                      <label for="message-field" class="pb-2">Message</label>
-                      <textarea class="form-control" name="message" rows="10" id="message-field" required></textarea>
-                  </div>
-                  <div class="col-md-12 text-center">
-                      <div class="loading">Loading</div>
-                      <div class="error-message"></div>
-                      <div class="sent-message">Your message has been sent. Thank you!</div>
-                      <button type="submit">Send Message</button>
-                  </div>
+
+                <div class="col-md-6">
+                  <label for="name-field" class="pb-2">Your Name</label>
+                  <input type="text" name="name" id="name-field" class="form-control" required="">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email-field" class="pb-2">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="subject-field" class="pb-2">Subject</label>
+                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="message-field" class="pb-2">Message</label>
+                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  <button type="submit">Send Message</button>
+                </div>
+
               </div>
-          </form>
+            </form>
           </div><!-- End Contact Form -->
 
         </div>
@@ -206,69 +212,34 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
-
 <script>
-    // Form submission with fetch and toast notifications
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent form's default action
+  async function submitForm(event) {
+    event.preventDefault();
+    const formData = {
+        name: document.getElementById('name-field').value,
+        email: document.getElementById('email-field').value,
+        subject: document.getElementById('subject-field').value,
+        message: document.getElementById('message-field').value
+    };
 
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData.entries()); // Convert form data to object
-
-        fetch('/api/send-email', { // Use the Vercel serverless function route
+    try {
+        const response = await fetch('/api/send_email', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to send message'); // Error handling for failed requests
-            }
-            return response.json(); // Parse the response as JSON
-        })
-        .then(data => {
-            // Show success toast notification
-            Toastify({
-                text: "Message sent successfully!",
-                duration: 3000, // Duration in milliseconds
-                gravity: "top", // Position: top or bottom
-                position: "right", // Position: left, center, or right
-                backgroundColor: "#28a745", // Success color
-                close: true // Add close button
-            }).showToast();
-
-            document.getElementById('contact-form').reset(); // Clear form fields
-        })
-        .catch(error => {
-            // Show error toast notification
-            Toastify({
-                text: "Failed to send message. Please try again.",
-                duration: 3000,
-                gravity: "top",
-                position: "right",
-                backgroundColor: "#dc3545", // Error color
-                close: true
-            }).showToast();
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
         });
-    });
+        const result = await response.json();
+        if (response.ok) {
+            alert(result.message);
+        } else {
+            alert(`Error: ${result.message}`);
+        }
+    } catch (error) {
+        console.error('Form submission error:', error);
+    }
+}
 
-    // Smooth scrolling for navbar links
-    const navbarLinks = document.querySelectorAll('.nav-link');
-    navbarLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = e.target.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
 </script>
-
 </body>
 
 </html>
