@@ -210,12 +210,10 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 <script>
-  document.getElementById('contact-form').addEventListener('submit', async function (event) {
-    event.preventDefault();
-    document.querySelector('.loading').style.display = 'block';
-    document.querySelector('.sent-message').style.display = 'none';
-    document.querySelector('.error-message').style.display = 'none';
+  document.getElementById('contactForm').addEventListener('submit', async function (e) {
+    e.preventDefault();  // Prevent the form from submitting the traditional way
 
+    // Get form data
     const formData = {
         name: document.getElementById('name-field').value,
         email: document.getElementById('email-field').value,
@@ -223,20 +221,28 @@
         message: document.getElementById('message-field').value
     };
 
+    // Show loading indicator
+    document.querySelector('.loading').style.display = 'block';
+    document.querySelector('.error-message').style.display = 'none';
+    document.querySelector('.sent-message').style.display = 'none';
+
     try {
+        // Send data to serverless function
         const response = await fetch('/api/send_email', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
         });
 
-        const result = await response.json();
-        document.querySelector('.loading').style.display = 'none';
+        const responseText = await response.text();  // Get the raw response text
+        console.log("Raw Response: ", responseText);
 
         if (response.ok) {
+            const result = JSON.parse(responseText);  // Parse JSON if the response is valid
+            document.querySelector('.loading').style.display = 'none';
             document.querySelector('.sent-message').style.display = 'block';
         } else {
-            document.querySelector('.error-message').innerText = `Error: ${result.message}`;
+            document.querySelector('.error-message').innerText = `Error: ${responseText}`;
             document.querySelector('.error-message').style.display = 'block';
         }
     } catch (error) {
@@ -245,6 +251,7 @@
         document.querySelector('.error-message').style.display = 'block';
     }
 });
+
 
 </script>
 </body>
