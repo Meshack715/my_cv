@@ -126,41 +126,38 @@
           </div>
 
           <div class="col-lg-7">
-            <form id="contact-form" action="/api/send_email" method="POST" onSubmit="submitForm(event)">
-            
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
+            <form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                <div class="row gy-4">
+                    <div class="col-md-6">
+                        <label for="name-field" class="pb-2">Your Name</label>
+                        <input type="text" name="name" id="name-field" class="form-control" required>
+                    </div>
+        
+                    <div class="col-md-6">
+                        <label for="email-field" class="pb-2">Your Email</label>
+                        <input type="email" class="form-control" name="email" id="email-field" required>
+                    </div>
+        
+                    <div class="col-md-12">
+                        <label for="subject-field" class="pb-2">Subject</label>
+                        <input type="text" class="form-control" name="subject" id="subject-field" required>
+                    </div>
+        
+                    <div class="col-md-12">
+                        <label for="message-field" class="pb-2">Message</label>
+                        <textarea class="form-control" name="message" rows="10" id="message-field" required></textarea>
+                    </div>
+        
+                    <div class="col-md-12 text-center">
+                        <div class="loading" style="display:none;">Loading...</div>
+                        <div class="error-message" style="display:none;color:red;"></div>
+                        <div class="sent-message" style="display:none;color:green;">Your message has been sent. Thank you!</div>
+                        <button type="submit">Send Message</button>
+                    </div>
                 </div>
-
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
             </form>
-          </div><!-- End Contact Form -->
+        </div>
+        
 
         </div>
 
@@ -213,8 +210,12 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 <script>
-  async function submitForm(event) {
+  document.getElementById('contact-form').addEventListener('submit', async function (event) {
     event.preventDefault();
+    document.querySelector('.loading').style.display = 'block';
+    document.querySelector('.sent-message').style.display = 'none';
+    document.querySelector('.error-message').style.display = 'none';
+
     const formData = {
         name: document.getElementById('name-field').value,
         email: document.getElementById('email-field').value,
@@ -228,16 +229,22 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
         });
+
         const result = await response.json();
+        document.querySelector('.loading').style.display = 'none';
+
         if (response.ok) {
-            alert(result.message);
+            document.querySelector('.sent-message').style.display = 'block';
         } else {
-            alert(`Error: ${result.message}`);
+            document.querySelector('.error-message').innerText = `Error: ${result.message}`;
+            document.querySelector('.error-message').style.display = 'block';
         }
     } catch (error) {
-        console.error('Form submission error:', error);
+        document.querySelector('.loading').style.display = 'none';
+        document.querySelector('.error-message').innerText = `Unexpected error: ${error.message}`;
+        document.querySelector('.error-message').style.display = 'block';
     }
-}
+});
 
 </script>
 </body>
